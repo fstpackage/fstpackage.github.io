@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Lightning Fast Serialization of Data Frames for R. � fst-package • fst</title>
+<title>Lightning Fast Serialization of Data Frames for R. — fst-package • fst</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -18,13 +18,26 @@
 <!-- Font Awesome icons -->
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 
+<!-- clipboard.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-  
-  
+
+
+
+<meta property="og:title" content="Lightning Fast Serialization of Data Frames for R. — fst-package" />
+
+<meta property="og:description" content="Multithreaded serialization of compressed data frames using the 'fst' format.
+The 'fst' format allows for random access of stored data which can be compressed with the
+LZ4 and ZSTD compressors." />
+
+<meta property="og:image" content="http://www.fstpackage.org/logo.png" />
+<meta name="twitter:card" content="summary" />
+
+
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -47,8 +60,12 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">fst</a>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="../index.html">fst</a>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.8.6</span>
+      </span>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
@@ -61,13 +78,14 @@
   <a href="../reference/index.html">Reference</a>
 </li>
 <li>
-  <a href="../news/index.html">News</a>
+  <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
         
       </ul>
+      
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
@@ -75,17 +93,21 @@
       
       </header>
 
-      <div class="row">
+<div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Lightning Fast Serialization of Data Frames for R.</h1>
+    
+    <div class="hidden name"><code>fst-package.Rd</code></div>
     </div>
 
+    <div class="ref-description">
     
     <p>Multithreaded serialization of compressed data frames using the 'fst' format.
 The 'fst' format allows for random access of stored data which can be compressed with the
 LZ4 and ZSTD compressors.</p>
     
+    </div>
 
         
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
@@ -97,7 +119,8 @@ Written and owned by Mark Klik.</p></li>
 by Yann Collet.</p></li>
 <li><p><strong>ZSTD</strong>: library containing code to compress data with the ZSTD compressor. Written by
 Yann Collet and owned by Facebook, Inc.</p></li>
-</ul><p><strong><em>The following copyright notice, list of conditions and disclaimer apply to
+</ul>
+    <p><strong><em>The following copyright notice, list of conditions and disclaimer apply to
 the use of the ZSTD library in the fst package:</em></strong></p>
 <p>BSD License</p>
 <p>For Zstandard software</p>
@@ -122,8 +145,8 @@ ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
 LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
 ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
 (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
-SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-    <strong><em>The following copyright notice, list of conditions and disclaimer apply to
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
+<p><strong><em>The following copyright notice, list of conditions and disclaimer apply to
 the use of the LZ4 library in the fst package:</em></strong></p>
 <p>LZ4 Library
 Copyright (c) 2011-2016, Yann Collet
@@ -171,5 +194,8 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
       </footer>
    </div>
 
+  
+
   </body>
 </html>
+

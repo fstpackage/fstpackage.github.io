@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Get or set the number of threads used in parallel operations � threads_fst • fst</title>
+<title>Get or set the number of threads used in parallel operations — threads_fst • fst</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -18,13 +18,30 @@
 <!-- Font Awesome icons -->
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 
+<!-- clipboard.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-  
-  
+
+
+
+<meta property="og:title" content="Get or set the number of threads used in parallel operations — threads_fst" />
+
+<meta property="og:description" content="For parallel operations, the performance is determined to a great extend by the number of threads
+used. More threads will allow the CPU to perform more computational intensive tasks simultaneously,
+speeding up the operation. Using more threads also introduces some overhead that will scale with the
+number of threads used. Therefore, using the maximum number of available threads is not always the
+fastest solution. With threads_fst the number of threads can be adjusted to the users
+specific requirements. As a default, fst uses a number of threads equal to the number of
+logical cores in the system." />
+
+<meta property="og:image" content="http://www.fstpackage.org/logo.png" />
+<meta name="twitter:card" content="summary" />
+
+
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -47,8 +64,12 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">fst</a>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="../index.html">fst</a>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.8.6</span>
+      </span>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
@@ -61,13 +82,14 @@
   <a href="../reference/index.html">Reference</a>
 </li>
 <li>
-  <a href="../news/index.html">News</a>
+  <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
         
       </ul>
+      
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
@@ -75,12 +97,15 @@
       
       </header>
 
-      <div class="row">
+<div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Get or set the number of threads used in parallel operations</h1>
+    
+    <div class="hidden name"><code>threads_fst.Rd</code></div>
     </div>
 
+    <div class="ref-description">
     
     <p>For parallel operations, the performance is determined to a great extend by the number of threads
 used. More threads will allow the CPU to perform more computational intensive tasks simultaneously,
@@ -90,10 +115,11 @@ fastest solution. With <code>threads_fst</code> the number of threads can be adj
 specific requirements. As a default, <code>fst</code> uses a number of threads equal to the number of
 logical cores in the system.</p>
     
+    </div>
 
-    <pre class="usage"><span class='fu'>threads_fst</span>(<span class='kw'>nr_of_threads</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+    <pre class="usage"><span class='fu'>threads_fst</span>(<span class='kw'>nr_of_threads</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>reset_after_fork</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
     
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
@@ -101,11 +127,28 @@ logical cores in the system.</p>
       <td><p>number of threads to use or <code>NULL</code> to get the current number of threads used in
 multithreaded operations.</p></td>
     </tr>
+    <tr>
+      <th>reset_after_fork</th>
+      <td><p>when <code>fst</code> is running in a forked process, the usage of OpenMP can
+create problems. To prevent these, <code>fst</code> switches back to single core usage when it detects a fork.
+After the fork, the number of threads is reset to it's initial setting. However, on some compilers
+(e.g. Intel), switching back to multi-threaded mode can lead to issues. When <code>reset_after_fork</code>
+is set to <code>FALSE</code>, <code>fst</code> is left in single-threaded mode after the fork ends. After the fork,
+multithreading can be activated again manually by calling <code>threads_fst</code> with an appropriate value
+for <code>nr_of_threads</code>. The default (<code>reset_after_fork = NULL</code>) leaves the fork behavior unchanged.</p></td>
+    </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>the number of threads (previously) used</p>
+    
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>The number of threads can also be set with <code>option(fst_threads = N)</code>.
+NOTE: This option is only read when the package's namespace is first loaded, with commands like
+<code>library</code>, <code>require</code>, or <code>::</code>. If you have already used one of these, you
+must use <code>threads_fst</code> to set the number of threads.</p>
     
 
   </div>
@@ -115,6 +158,8 @@ multithreaded operations.</p></td>
       <li><a href="#arguments">Arguments</a></li>
       
       <li><a href="#value">Value</a></li>
+
+      <li><a href="#details">Details</a></li>
           </ul>
 
   </div>
@@ -132,5 +177,8 @@ multithreaded operations.</p></td>
       </footer>
    </div>
 
+  
+
   </body>
 </html>
+

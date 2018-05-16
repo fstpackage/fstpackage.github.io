@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>All news • fst</title>
+<title>Changelog • fst</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -18,13 +18,22 @@
 <!-- Font Awesome icons -->
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 
+<!-- clipboard.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-  
-  
+
+
+
+<meta property="og:title" content="Changelog" />
+
+<meta property="og:image" content="http://www.fstpackage.org/logo.png" />
+<meta name="twitter:card" content="summary" />
+
+
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -47,8 +56,12 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">fst</a>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="../index.html">fst</a>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.8.6</span>
+      </span>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
@@ -61,13 +74,14 @@
   <a href="../reference/index.html">Reference</a>
 </li>
 <li>
-  <a href="../news/index.html">News</a>
+  <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
         
       </ul>
+      
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
@@ -75,21 +89,143 @@
       
       </header>
 
-      <div class="row">
-
-  <div class="col-md-9">
+<div class="row">
+  <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Change log <small>All releases</small></h1>
+      <h1>Changelog <small></small></h1>
+      
     </div>
 
-    <div class="contents">
-    </div>
+    <div id="fst-0-8-6" class="section level1">
+<h1 class="page-header">
+<a href="#fst-0-8-6" class="anchor"></a>fst 0.8.6<small> 2018-05-16 </small>
+</h1>
+<p>Version 0.8.6 of the <code>fst</code> package brings clearer printing of <code>fst_table</code> objects. It also includes optimizations for controlling the number of threads used by the package during reads and writes and after a fork has ended. The <code>LZ4</code> and <code>ZSTD</code> compression libraries are updated to their latest (and fastest) releases. UTF-8 encoded column names are now correctly stored in the <code>fst</code> format.</p>
+<div id="new-features" class="section level2">
+<h2 class="hasAnchor">
+<a href="#new-features" class="anchor"></a>New features</h2>
+<ul>
+<li><p>More advanced printing generic of the <code>fst_table</code> reference object, showing column types, (possible) keys, and the table header and footer data (issue #131, thanks <a href='http://github.com/renkun'>@renkun</a>-ken for reporting and discussions).</p></li>
+<li><p>User has more control over the number of threads used by fst. Option ‘fst_threads’ can now be used to initialize the number of threads when the package is first loaded (issue #132, thanks to <a href='http://github.com/karldw'>@karldw</a> for the pull request).</p></li>
+<li><p>Option ‘fst_restore_after_fork’ can be used to select the threading behaviour after a fork has ended. Like the <code>data.table</code> package, <code>fst</code> switches back to a single thread when a fork is detected (using OpenMP in a fork can lead to problems). Unlike <code>data.table</code>, the <code>fst</code> package restores the number of threads to it’s previous setting when the fork ends. If this leads to unexpected problems, the user can set the ‘fst_restore_after_fork’ option to FALSE to disable that.</p></li>
+</ul>
+</div>
+<div id="bugs-solved" class="section level2">
+<h2 class="hasAnchor">
+<a href="#bugs-solved" class="anchor"></a>Bugs solved</h2>
+<ul>
+<li>Character encoding of column names correctly stored in the <code>fst</code> format (issue #144, thanks <a href='http://github.com/shrektan'>@shrektan</a> for reporting and discussions).</li>
+</ul>
+</div>
+<div id="documentation" class="section level2">
+<h2 class="hasAnchor">
+<a href="#documentation" class="anchor"></a>Documentation</h2>
+<ul>
+<li><p>Improved accuracy of fst_table documentation regarding random row access (issue #143, thanks <a href='http://github.com/martinblostein'>@martinblostein</a> for pointed out the unclarity)</p></li>
+<li><p>Improved documentation on background threads during <code><a href="../reference/write_fst.html">write_fst()</a></code> and <code><a href="../reference/write_fst.html">read_fst()</a></code> (issue #121, thanks <a href='http://github.com/krlmlr'>@krlmlr</a> for suggestions and discussion)</p></li>
+</ul>
+</div>
+</div>
+    <div id="fst-0-8-4" class="section level1">
+<h1 class="page-header">
+<a href="#fst-0-8-4" class="anchor"></a>fst 0.8.4<small> 2018-01-25 </small>
+</h1>
+<p>The v0.8.4 release brings a <code>data.frame</code> interface to the <code>fst</code> package. Column and row selection can now be done directly from the <code>[</code> operator. In addition, it fixes some issues and prepares the package for the next build toolchain of CRAN.</p>
+<div id="new-features-1" class="section level2">
+<h2 class="hasAnchor">
+<a href="#new-features-1" class="anchor"></a>New features</h2>
+<ul>
+<li>A <code>data.frame</code> interface was added to the package. The user can create a reference object to a <code>fst</code> file with method <code>fst</code>. That reference can be used like a <code>data.frame</code> and will automatically make column- and row- selections in the referenced <code>fst</code> file.</li>
+</ul>
+</div>
+<div id="bugs-solved-1" class="section level2">
+<h2 class="hasAnchor">
+<a href="#bugs-solved-1" class="anchor"></a>Bugs solved</h2>
+<ul>
+<li><p>Build issues with the dev build of R have been fixed. In particular, <code>fst</code> now builds correctly with the Clang 6.0 toolchain which will be released by CRAN shortly (thanks <a href='http://github.com/kevinushey'>@kevinushey</a> for reporting the problem and CRAN maintainers for the advance warning.</p></li>
+<li><p>An error was fixed where compressing a short factor column with 128 to 32767 levels but only a single value, returned incorrect results (issue #128, thanks <a href='http://github.com/martinblostein'>@martinblostein</a> for reporting and help fixing the problem).</p></li>
+<li><p>An error was fixed where columns f type ‘ITime’ were incorrectly serialized (issue #126, thanks <a href='http://github.com/Giqles'>@Giqles</a> for reporting the problem).</p></li>
+<li><p>An error was fixed where using <code>fst</code> as a dependency in another package and building that package in RStudio, crashed RStudio. The problem was that RStudio uses a fork to build or document a package. That fork made <code>fst</code> use OpenMP library methods, which leads to crashes on macOS. After the fix, no calls to any OpenMP library method are now made from <code>fst</code> when it’s run from a forked process (issue #100 and issue #109, thanks to <a href='http://github.com/eipi10'>@eipi10</a>, <a href='http://github.com/PeteHaitch'>@PeteHaitch</a>, <a href='http://github.com/kevinushey'>@kevinushey</a>, <a href='http://github.com/thierrygosselin'>@thierrygosselin</a>, <a href='http://github.com/xiaodaigh'>@xiaodaigh</a> and <a href='http://github.com/jzzcutler'>@jzzcutler</a> for reporting the problem and help fix it).</p></li>
+</ul>
+</div>
+<div id="documentation-1" class="section level2">
+<h2 class="hasAnchor">
+<a href="#documentation-1" class="anchor"></a>Documentation</h2>
+<ul>
+<li>Documentation for method <code>write_fst</code> was improved (issue #123, thanks <a href='http://github.com/krlmlr'>@krlmlr</a> for reporting and submitting a pull request).</li>
+</ul>
+</div>
+</div>
+    <div id="fst-0-8-2" class="section level1">
+<h1 class="page-header">
+<a href="#fst-0-8-2" class="anchor"></a>fst 0.8.2<small> 2017-12-18 </small>
+</h1>
+<div id="new-features-2" class="section level2">
+<h2 class="hasAnchor">
+<a href="#new-features-2" class="anchor"></a>New features</h2>
+<ul>
+<li><p>Package <code>fst</code> has support for multi-threading using OpenMP. Compression, decompression and disk IO have been largely parallelized for (much) improved performance.</p></li>
+<li>
+<p>Many new column types are now supported by the <code>fst</code> format (where appropriate, both the <code>double</code> and <code>integer</code> variants are supported):</p>
+<ul>
+<li><code>raw</code></li>
+<li><code>DateTime</code></li>
+<li><code>integer64</code></li>
+<li><code>nanotime</code></li>
+<li><code>POSIXct</code></li>
+<li><code>ordered factors</code></li>
+<li><code>difftime</code></li>
+</ul>
+<p><em>Thanks <a href='http://github.com/arunsrinivasan'>@arunsrinivasan</a>, <a href='http://github.com/derekholmes'>@derekholmes</a>, <a href='http://github.com/phillc73'>@phillc73</a>, <a href='http://github.com/HughParsonage'>@HughParsonage</a>, <a href='http://github.com/statquant'>@statquant</a>, <a href='http://github.com/eddelbuettel'>@eddelbuettel</a>, <a href='http://github.com/eipi10'>@eipi10</a>, and <a href='http://github.com/verajosemanuel'>@verajosemanuel</a> for feature requests and helpful discussions.</em></p>
+</li>
+<li><p>Multi-threaded <code>LZ4</code> and <code>ZSTD</code> compression using methods <code>compress_fst</code> and <code>decompress_fst</code>. These methods provide a direct API to the <code>LZ4</code> and <code>ZSTD</code> compressors at speeds of multiple GB/s. A specific block format is used to facilitate parallel processing. For additional stability, hashes can be calculated if required.</p></li>
+<li><p>Method <code>hash_fst</code> provides an extremely fast multi-threaded 64-bit hashing algorithm based on <code>xxHash</code>. Speeds up to the memory bandwidth can be achieved.</p></li>
+<li><p>Faster conversion to <code>data.table</code> in <code>read_fst</code>. <em>Thanks <a href='http://github.com/dselivanov'>@dselivanov</a></em></p></li>
+<li><p>Package <code>data.table</code> is now an optional dependency. <em>Thanks <a href='http://github.com/jimhester'>@jimhester</a></em>. Note that in the near future, a dependency on <code>data.table</code> will probably be introduced again, as <code>fst</code> will get a <code>data.table</code>-like interface.</p></li>
+<li><p>The <code>fst</code> format has a <em>magic number</em> to be able to identify a <code>fst</code> file without actually opening the file or requiring the <code>fstlib</code> library. <em>Thanks <a href='http://github.com/davidanthoff'>@davidanthoff</a>.</em></p></li>
+<li><p>For development versions, the build number is now shown when fst is loaded. <em>Thanks <a href='http://github.com/skanskan'>@skanskan</a>.</em></p></li>
+<li><p>Character encodings are preserved for character and factor columns. <em>Thanks <a href='http://github.com/carioca67'>@carioca67</a> and <a href='http://github.com/adrianadermon'>@adrianadermon</a></em></p></li>
+<li><p>Naming of fst methods is now consistent. <em>Thanks <a href='http://github.com/jimhester'>@jimhester</a> and <a href='http://github.com/brinkhuis'>@brinkhuis</a>.</em></p></li>
+<li><p>The core C++ code with the API to read and write <code>fst</code> files, and use compression and hashing now lives in a separate library called <a href="https://github.com/fstpackage/fstlib"><code>fstlib</code></a>. Although not visible to the user, this is a major development allowing <code>fst</code> to be implemented for other languages than <code>R</code> (with comparable performance).</p></li>
+</ul>
+</div>
+<div id="bugs-solved-2" class="section level2">
+<h2 class="hasAnchor">
+<a href="#bugs-solved-2" class="anchor"></a>Bugs solved</h2>
+<ul>
+<li><p>Tilde-expansion in <code>write_fst</code> not correctly processed. <em>Thanks <a href='http://github.com/HughParsonage'>@HughParsonage</a>, <a href='http://github.com/PoGibas'>@PoGibas</a>.</em></p></li>
+<li><p>Writing more than INT_MAX rows crashes <code>fst</code>. <em>Thanks <a href='http://github.com/wei'>@wei</a>-wu-nyc</em></p></li>
+<li><p>Incorrect fst file is created when an empty data.table is saved. <em>Thanks <a href='http://github.com/wei'>@wei</a>-wu-nyc.</em></p></li>
+<li><p>Error/crash when saving factor column with 0 factor levels. <em>Thanks <a href='http://github.com/martinblostein'>@martinblostein</a>.</em></p></li>
+<li><p>No warning was given when disk runs out of space during a <code>fstwrite</code> operation.</p></li>
+<li><p>A data.table warning message was given on modification of columns of a sorted table. <em>Thanks <a href='http://github.com/martinblostein'>@martinblostein</a>.</em></p></li>
+<li><p>Stack imbalance warnings under centain conditions. <em>Thanks <a href='http://github.com/ryankennedyio'>@ryankennedyio</a></em></p></li>
+</ul>
+</div>
+<div id="benchmarks" class="section level2">
+<h2 class="hasAnchor">
+<a href="#benchmarks" class="anchor"></a>Benchmarks</h2>
+<p>Thanks to <a href='http://github.com/mattdowle'>@mattdowle</a>, <a href='http://github.com/st'>@st</a>-pasha, <a href='http://github.com/phillc73'>@phillc73</a> for valuable discussions on <code>fst</code> benchmarks and how to accurately perform (and present) them.</p>
+</div>
+<div id="additional-credits" class="section level2">
+<h2 class="hasAnchor">
+<a href="#additional-credits" class="anchor"></a>Additional credits</h2>
+<ul>
+<li><p>Special thanks to <a href='http://github.com/arunsrinivasan'>@arunsrinivasan</a> for a lot of valuable discussions on the future direction of the <code>fst</code> package, I hope <code>fst</code> may continue to benefit from your experience!</p></li>
+<li><p>Thanks for reporting and discussing various bugs, inconsistencies, instabilities or installation problems to <a href='http://github.com/treysp'>@treysp</a>, <a href='http://github.com/wei'>@wei</a>-wu-nyc, <a href='http://github.com/khsu15'>@khsu15</a>, <a href='http://github.com/PMassicotte'>@PMassicotte</a>, <a href='http://github.com/xiaodaigh'>@xiaodaigh</a>, <a href='http://github.com/renkun'>@renkun</a>-ken, <a href='http://github.com/statquant'>@statquant</a>, <a href='http://github.com/tgolden23'>@tgolden23</a>, <a href='http://github.com/carioca67'>@carioca67</a>, <a href='http://github.com/jzzcutler'>@jzzcutler</a>, <a href='http://github.com/MehranMoghtadai'>@MehranMoghtadai</a>.</p></li>
+<li><p>And thanks to <a href='http://github.com/mperone'>@mperone</a>, <a href='http://github.com/kendonB'>@kendonB</a>, <a href='http://github.com/xiaodaigh'>@xiaodaigh</a>, <a href='http://github.com/derekholmes'>@derekholmes</a>, <a href='http://github.com/pmakai'>@pmakai</a>, <a href='http://github.com/1beb'>@1beb</a>, <a href='http://github.com/BenoitLondon'>@BenoitLondon</a>, <a href='http://github.com/skanskan'>@skanskan</a>, <a href='http://github.com/petermuller71'>@petermuller71</a>, <a href='http://github.com/nextpagesoft'>@nextpagesoft</a>, <a href='http://github.com/cawthm'>@cawthm</a>, <a href='http://github.com/jeroenjanssens'>@jeroenjanssens</a>, <a href='http://github.com/dselivanov'>@dselivanov</a>, <a href='http://github.com/Fpadt'>@Fpadt</a> and <a href='http://github.com/kbroman'>@kbroman</a> for helpful (online) discussions and (feature) requests. All the community feedback is much appreciated and tremendously helps to to improve the stability and usability of <code>fst</code>! (if I missed anyone, I apologize in advance, please let me know and I will fix this document ASAP)</p></li>
+</ul>
+</div>
+</div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <div id="tocnav">
       <h2>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
+        <li><a href="#fst-0-8-6">0.8.6</a></li>
+        <li><a href="#fst-0-8-4">0.8.4</a></li>
+        <li><a href="#fst-0-8-2">0.8.2</a></li>
       </ul>
     </div>
   </div>
@@ -108,5 +244,8 @@
       </footer>
    </div>
 
+  
+
   </body>
 </html>
+

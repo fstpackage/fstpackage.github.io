@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Read and write fst files. � write_fst • fst</title>
+<title>Read and write fst files. — write_fst • fst</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -18,13 +18,31 @@
 <!-- Font Awesome icons -->
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 
+<!-- clipboard.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
 <script src="../jquery.sticky-kit.min.js"></script>
 <script src="../pkgdown.js"></script>
-  
-  
+
+
+
+<meta property="og:title" content="Read and write fst files. — write_fst" />
+
+<meta property="og:description" content="Read and write data frames from and to a fast-storage (fst) file.
+Allows for compression and (file level) random access of stored data, even for compressed datasets.
+Multiple threads are used to obtain high (de-)serialization speeds but all background threads are
+re-joined before write_fst and read_fst return (reads and writes are stable).
+When using a data.table object for x, the key (if any) is preserved,
+allowing storage of sorted data.
+Methods read_fst and write_fst are equivalent to read.fst and write.fst (but the
+former syntax is preferred)." />
+
+<meta property="og:image" content="http://www.fstpackage.org/logo.png" />
+<meta name="twitter:card" content="summary" />
+
+
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -47,8 +65,12 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">fst</a>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="../index.html">fst</a>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.8.6</span>
+      </span>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
@@ -61,13 +83,14 @@
   <a href="../reference/index.html">Reference</a>
 </li>
 <li>
-  <a href="../news/index.html">News</a>
+  <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
         
       </ul>
+      
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
@@ -75,20 +98,26 @@
       
       </header>
 
-      <div class="row">
+<div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Read and write fst files.</h1>
+    
+    <div class="hidden name"><code>write_fst.Rd</code></div>
     </div>
 
+    <div class="ref-description">
     
-    <p>Read and write data frames from and to a fast-storage (fst) file.
+    <p>Read and write data frames from and to a fast-storage (<code>fst</code>) file.
 Allows for compression and (file level) random access of stored data, even for compressed datasets.
+Multiple threads are used to obtain high (de-)serialization speeds but all background threads are
+re-joined before <code>write_fst</code> and <code>read_fst</code> return (reads and writes are stable).
 When using a <code>data.table</code> object for <code>x</code>, the key (if any) is preserved,
 allowing storage of sorted data.
 Methods <code>read_fst</code> and <code>write_fst</code> are equivalent to <code>read.fst</code> and <code>write.fst</code> (but the
 former syntax is preferred).</p>
     
+    </div>
 
     <pre class="usage"><span class='fu'>write_fst</span>(<span class='no'>x</span>, <span class='no'>path</span>, <span class='kw'>compress</span> <span class='kw'>=</span> <span class='fl'>50</span>, <span class='kw'>uniform_encoding</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
@@ -100,7 +129,7 @@ former syntax is preferred).</p>
 <span class='fu'>read.fst</span>(<span class='no'>path</span>, <span class='kw'>columns</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>from</span> <span class='kw'>=</span> <span class='fl'>1</span>, <span class='kw'>to</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
   <span class='kw'>as.data.table</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>old_format</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
     
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a> Arguments</h2>
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
@@ -114,14 +143,14 @@ former syntax is preferred).</p>
     <tr>
       <th>compress</th>
       <td><p>value in the range 0 to 100, indicating the amount of compression to use.
-Lower values mean larger file sizes.</p></td>
+Lower values mean larger file sizes. The default compression is set to 50.</p></td>
     </tr>
     <tr>
       <th>uniform_encoding</th>
-      <td><p>If TRUE, all character vectors will be assumed to have elements with equal encoding.
+      <td><p>If <code>TRUE</code>, all character vectors will be assumed to have elements with equal encoding.
 The encoding (latin1, UTF8 or native) of the first non-NA element will used as encoding for the whole column.
 This will be a correct assumption for most use cases.
-If <code>uniform.encoding</code> is set to FALSE, no such assumption will be made and all elements will be converted
+If <code>uniform.encoding</code> is set to <code>FALSE</code>, no such assumption will be made and all elements will be converted
 to the same encoding. The latter is a relatively expensive operation and will reduce write performance for
 character columns.</p></td>
     </tr>
@@ -158,13 +187,12 @@ invisibly returns <code>x</code> (so you can use this function in a pipeline).</
     <pre class="examples"><div class='input'><span class='co'># Sample dataset</span>
 <span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'>data.frame</span>(<span class='kw'>A</span> <span class='kw'>=</span> <span class='fl'>1</span>:<span class='fl'>10000</span>, <span class='kw'>B</span> <span class='kw'>=</span> <span class='fu'>sample</span>(<span class='fu'>c</span>(<span class='fl'>TRUE</span>, <span class='fl'>FALSE</span>, <span class='fl'>NA</span>), <span class='fl'>10000</span>, <span class='kw'>replace</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>))
 
-<span class='co'># Uncompressed</span>
-<span class='fu'>write_fst</span>(<span class='no'>x</span>, <span class='st'>"dataset.fst"</span>)  <span class='co'># filesize: 41 KB</span>
-<span class='no'>y</span> <span class='kw'>&lt;-</span> <span class='fu'>read_fst</span>(<span class='st'>"dataset.fst"</span>) <span class='co'># read uncompressed data</span>
-
-<span class='co'># Compressed</span>
+<span class='co'># Default compression</span>
+<span class='fu'>write_fst</span>(<span class='no'>x</span>, <span class='st'>"dataset.fst"</span>)  <span class='co'># filesize: 17 KB</span>
+<span class='no'>y</span> <span class='kw'>&lt;-</span> <span class='fu'>read_fst</span>(<span class='st'>"dataset.fst"</span>) <span class='co'># read fst file</span></div><div class='output co'>#&gt; <span class='message'>Loading required namespace: data.table</span></div><div class='input'>
+<span class='co'># Maximum compression</span>
 <span class='fu'>write_fst</span>(<span class='no'>x</span>, <span class='st'>"dataset.fst"</span>, <span class='fl'>100</span>)  <span class='co'># fileSize: 4 KB</span>
-<span class='no'>y</span> <span class='kw'>&lt;-</span> <span class='fu'>read_fst</span>(<span class='st'>"dataset.fst"</span>) <span class='co'># read compressed data</span>
+<span class='no'>y</span> <span class='kw'>&lt;-</span> <span class='fu'>read_fst</span>(<span class='st'>"dataset.fst"</span>) <span class='co'># read fst file</span>
 
 <span class='co'># Random access</span>
 <span class='no'>y</span> <span class='kw'>&lt;-</span> <span class='fu'>read_fst</span>(<span class='st'>"dataset.fst"</span>, <span class='st'>"B"</span>) <span class='co'># read selection of columns</span>
@@ -195,5 +223,8 @@ invisibly returns <code>x</code> (so you can use this function in a pipeline).</
       </footer>
    </div>
 
+  
+
   </body>
 </html>
+
