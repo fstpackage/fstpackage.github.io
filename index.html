@@ -34,7 +34,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">fst</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.8.10</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.0</span>
       </span>
     </div>
 
@@ -70,7 +70,7 @@
     
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 <p><img src="logo.png" align="right"></p>
-<p><a href="https://travis-ci.org/fstpackage/fst"><img src="https://travis-ci.org/fstpackage/fst.svg?branch=develop" alt="Linux/OSX Build Status"></a> <a href="https://ci.appveyor.com/project/fstpackage/fst/branch/develop"><img src="https://ci.appveyor.com/api/projects/status/6g6kp8onpb26jhnm/branch/develop?svg=true" alt="WIndows Build status"></a> <a href="https://www.gnu.org/licenses/agpl-3.0"><img src="https://img.shields.io/badge/License-AGPL%20v3-blue.svg" alt="License: AGPL v3"></a> <a href="https://cran.r-project.org/package=fst"><img src="http://www.r-pkg.org/badges/version/fst" alt="CRAN_Status_Badge"></a> <a href="https://codecov.io/gh/fstpackage/fst"><img src="https://codecov.io/gh/fstpackage/fst/branch/develop/graph/badge.svg" alt="codecov"></a> <a href="http://cran.rstudio.com/web/packages/fst/index.html"><img src="http://cranlogs.r-pkg.org/badges/fst" alt="downloads"></a></p>
+<p><a href="https://travis-ci.org/fstpackage/fst"><img src="https://travis-ci.org/fstpackage/fst.svg?branch=develop" alt="Linux/OSX Build Status"></a> <a href="https://ci.appveyor.com/project/fstpackage/fst/branch/develop"><img src="https://ci.appveyor.com/api/projects/status/6g6kp8onpb26jhnm/branch/develop?svg=true" alt="Windows Build status"></a> <a href="https://www.gnu.org/licenses/agpl-3.0"><img src="https://img.shields.io/badge/License-AGPL%20v3-blue.svg" alt="License: AGPL v3"></a> <a href="https://cran.r-project.org/package=fst"><img src="http://www.r-pkg.org/badges/version/fst" alt="CRAN_Status_Badge"></a> <a href="https://codecov.io/gh/fstpackage/fst"><img src="https://codecov.io/gh/fstpackage/fst/branch/develop/graph/badge.svg" alt="codecov"></a> <a href="http://cran.rstudio.com/web/packages/fst/index.html"><img src="http://cranlogs.r-pkg.org/badges/fst" alt="downloads"></a></p>
 <div id="overview" class="section level2">
 <h2 class="hasAnchor">
 <a href="#overview" class="anchor"></a>Overview</h2>
@@ -166,44 +166,44 @@
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
 <p>The easiest way to install the package is from CRAN:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/install.packages">install.packages</a></span>(<span class="st">"fst"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/install.packages">install.packages</a></span>(<span class="st">"fst"</span>)</a></code></pre></div>
 <p>You can also use the development version from GitHub:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co"># install.packages("devtools")</span></a>
-<a class="sourceLine" id="cb2-2" data-line-number="2">devtools<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/devtools/topics/reexports">install_github</a></span>(<span class="st">"fstPackage/fst"</span>, <span class="dt">ref =</span> <span class="st">"develop"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="co"># install.packages("devtools")</span></a>
+<a class="sourceLine" id="cb2-2" title="2">devtools<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/devtools/topics/reexports">install_github</a></span>(<span class="st">"fstPackage/fst"</span>, <span class="dt">ref =</span> <span class="st">"develop"</span>)</a></code></pre></div>
 </div>
 <div id="basic-usage" class="section level2">
 <h2 class="hasAnchor">
 <a href="#basic-usage" class="anchor"></a>Basic usage</h2>
 <p>Using <em>fst</em> is simple. Data can be stored and retrieved using methods <em>write_fst</em> and <em>read_fst</em>:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co"># Generate some random data frame with 10 million rows and various column types</span></a>
-<a class="sourceLine" id="cb3-2" data-line-number="2">nr_of_rows &lt;-<span class="st"> </span><span class="fl">1e7</span></a>
-<a class="sourceLine" id="cb3-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb3-4" data-line-number="4">df &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/data.frame">data.frame</a></span>(</a>
-<a class="sourceLine" id="cb3-5" data-line-number="5">    <span class="dt">Logical =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/sample">sample</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">NA</span>), <span class="dt">prob =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="fl">0.85</span>, <span class="fl">0.1</span>, <span class="fl">0.05</span>), nr_of_rows, <span class="dt">replace =</span> <span class="ot">TRUE</span>),</a>
-<a class="sourceLine" id="cb3-6" data-line-number="6">    <span class="dt">Integer =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/sample">sample</a></span>(1L<span class="op">:</span>100L, nr_of_rows, <span class="dt">replace =</span> <span class="ot">TRUE</span>),</a>
-<a class="sourceLine" id="cb3-7" data-line-number="7">    <span class="dt">Real =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/sample">sample</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/sample">sample</a></span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10000</span>, <span class="dv">20</span>) <span class="op">/</span><span class="st"> </span><span class="dv">100</span>, nr_of_rows, <span class="dt">replace =</span> <span class="ot">TRUE</span>),</a>
-<a class="sourceLine" id="cb3-8" data-line-number="8">    <span class="dt">Factor =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/factor">as.factor</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/sample">sample</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/labels">labels</a></span>(UScitiesD), nr_of_rows, <span class="dt">replace =</span> <span class="ot">TRUE</span>))</a>
-<a class="sourceLine" id="cb3-9" data-line-number="9">  )</a>
-<a class="sourceLine" id="cb3-10" data-line-number="10"></a>
-<a class="sourceLine" id="cb3-11" data-line-number="11"><span class="co"># Store the data frame to disk</span></a>
-<a class="sourceLine" id="cb3-12" data-line-number="12">  <span class="kw"><a href="reference/write_fst.html">write.fst</a></span>(df, <span class="st">"dataset.fst"</span>)</a>
-<a class="sourceLine" id="cb3-13" data-line-number="13">  </a>
-<a class="sourceLine" id="cb3-14" data-line-number="14"><span class="co"># Retrieve the data frame again</span></a>
-<a class="sourceLine" id="cb3-15" data-line-number="15">  df &lt;-<span class="st"> </span><span class="kw"><a href="reference/write_fst.html">read.fst</a></span>(<span class="st">"dataset.fst"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="co"># Generate some random data frame with 10 million rows and various column types</span></a>
+<a class="sourceLine" id="cb3-2" title="2">nr_of_rows &lt;-<span class="st"> </span><span class="fl">1e7</span></a>
+<a class="sourceLine" id="cb3-3" title="3"></a>
+<a class="sourceLine" id="cb3-4" title="4">df &lt;-<span class="st"> </span><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/data.frame">data.frame</a></span>(</a>
+<a class="sourceLine" id="cb3-5" title="5">    <span class="dt">Logical =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/sample">sample</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="ot">TRUE</span>, <span class="ot">FALSE</span>, <span class="ot">NA</span>), <span class="dt">prob =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="fl">0.85</span>, <span class="fl">0.1</span>, <span class="fl">0.05</span>), nr_of_rows, <span class="dt">replace =</span> <span class="ot">TRUE</span>),</a>
+<a class="sourceLine" id="cb3-6" title="6">    <span class="dt">Integer =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/sample">sample</a></span>(1L<span class="op">:</span>100L, nr_of_rows, <span class="dt">replace =</span> <span class="ot">TRUE</span>),</a>
+<a class="sourceLine" id="cb3-7" title="7">    <span class="dt">Real =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/sample">sample</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/sample">sample</a></span>(<span class="dv">1</span><span class="op">:</span><span class="dv">10000</span>, <span class="dv">20</span>) <span class="op">/</span><span class="st"> </span><span class="dv">100</span>, nr_of_rows, <span class="dt">replace =</span> <span class="ot">TRUE</span>),</a>
+<a class="sourceLine" id="cb3-8" title="8">    <span class="dt">Factor =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/factor">as.factor</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/sample">sample</a></span>(<span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/labels">labels</a></span>(UScitiesD), nr_of_rows, <span class="dt">replace =</span> <span class="ot">TRUE</span>))</a>
+<a class="sourceLine" id="cb3-9" title="9">  )</a>
+<a class="sourceLine" id="cb3-10" title="10"></a>
+<a class="sourceLine" id="cb3-11" title="11"><span class="co"># Store the data frame to disk</span></a>
+<a class="sourceLine" id="cb3-12" title="12">  <span class="kw"><a href="reference/write_fst.html">write.fst</a></span>(df, <span class="st">"dataset.fst"</span>)</a>
+<a class="sourceLine" id="cb3-13" title="13">  </a>
+<a class="sourceLine" id="cb3-14" title="14"><span class="co"># Retrieve the data frame again</span></a>
+<a class="sourceLine" id="cb3-15" title="15">  df &lt;-<span class="st"> </span><span class="kw"><a href="reference/write_fst.html">read.fst</a></span>(<span class="st">"dataset.fst"</span>)</a></code></pre></div>
 <p><em>Note: the dataset defined in this example code was also used to obtain the benchmark results shown in the introduction.</em></p>
 </div>
 <div id="random-access" class="section level2">
 <h2 class="hasAnchor">
 <a href="#random-access" class="anchor"></a>Random access</h2>
 <p>The <em>fst</em> file format provides full random access to stored datasets. You can retrieve a selection of columns and rows with:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">  df_subset &lt;-<span class="st"> </span><span class="kw"><a href="reference/write_fst.html">read.fst</a></span>(<span class="st">"dataset.fst"</span>, <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"Logical"</span>, <span class="st">"Factor"</span>), <span class="dt">from =</span> <span class="dv">2000</span>, <span class="dt">to =</span> <span class="dv">5000</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1">  df_subset &lt;-<span class="st"> </span><span class="kw"><a href="reference/write_fst.html">read.fst</a></span>(<span class="st">"dataset.fst"</span>, <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/c">c</a></span>(<span class="st">"Logical"</span>, <span class="st">"Factor"</span>), <span class="dt">from =</span> <span class="dv">2000</span>, <span class="dt">to =</span> <span class="dv">5000</span>)</a></code></pre></div>
 <p>This reads rows 2000 to 5000 from columns <em>Logical</em> and <em>Factor</em> without actually touching any other data in the stored file. That means that a subset can be read from file <strong>without reading the complete file first</strong>. This is different from, say, <em>readRDS</em> or <em>read_feather</em> where you have to read the complete file or column before you can make a subset.</p>
 </div>
 <div id="compression" class="section level2">
 <h2 class="hasAnchor">
 <a href="#compression" class="anchor"></a>Compression</h2>
 <p>For compression the excellent and speedy <a href="https://github.com/lz4/lz4">LZ4</a> and <a href="https://github.com/facebook/zstd">ZSTD</a> compression algorithms are used. These compressors (in combination with type-specific bit filters), enable <em>fst</em> to achieve high compression speeds at reasonable compression factors. The compression factor can be tuned from 0 (minimum) to 100 (maximum):</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw"><a href="reference/write_fst.html">write.fst</a></span>(df, <span class="st">"dataset.fst"</span>, <span class="dv">100</span>)  <span class="co"># use maximum compression</span></a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"><span class="kw"><a href="reference/write_fst.html">write.fst</a></span>(df, <span class="st">"dataset.fst"</span>, <span class="dv">100</span>)  <span class="co"># use maximum compression</span></a></code></pre></div>
 <p>Compression reduces the size of the <em>fst</em> file that holds your data. But because the (de-)compression is done <em>on background threads</em>, it can increase the total read- and write speed as well. The graph below shows how the use of multiple threads enhances the read and write speed of our sample dataset.</p>
 <p><img src="README-multi-threading-1.png" width="960"></p>
 <p>The <em>csv</em> format used by the <em>fread</em> and <em>fwrite</em> methods of package <em>data.table</em> is actually a human-readable text format and not a binary format. Normally, binary formats would be much faster than the <em>csv</em> format, because <em>csv</em> takes more space on disk, is row based, uncompressed and needs to be parsed into a computer-native format to have any meaning. So any serializer that’s working on <em>csv</em> has an enormous disadvantage as compared to binary formats. Yet, the results show that <em>data.table</em> is on par with binary formats and when more threads are used, it can even be faster. Because of this impressive performance, it was included in the graph for comparison.</p>
