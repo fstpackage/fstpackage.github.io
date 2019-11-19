@@ -133,8 +133,7 @@ the expression supplied by parameter 'expr' is used for printing.</p></td>
     <p>A delayed_expr object</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='co'># define a delayed expression</span>
+    <pre class="examples"><div class='input'><span class='co'># define a delayed expression</span>
 <span class='no'>f_delay</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>() {
   <span class='fu'>delayed_expr</span>(<span class='no'>size</span>)
 }
@@ -143,19 +142,18 @@ the expression supplied by parameter 'expr' is used for printing.</p></td>
 <span class='no'>y</span> <span class='kw'>=</span> (<span class='fl'>1</span> + <span class='fu'>f_delay</span>()) <span class='kw'>==</span> <span class='fl'>5</span>
 
 <span class='co'># print the unevaluated expression</span>
-<span class='no'>y</span>
-
+<span class='no'>y</span></div><div class='output co'>#&gt; [1] "((1 + size) == 5)"</div><div class='input'>
+<span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
 <span class='co'># evaluation generates an error, as size is not defined</span>
 <span class='fu'><a href='delayed_eval.html'>delayed_eval</a></span>(<span class='no'>y</span>)
+}
 
 <span class='co'># define size and re-evaluate</span>
 <span class='no'>size</span> <span class='kw'>=</span> <span class='fl'>0.1</span>
-<span class='fu'><a href='delayed_eval.html'>delayed_eval</a></span>(<span class='no'>y</span>)
-
+<span class='fu'><a href='delayed_eval.html'>delayed_eval</a></span>(<span class='no'>y</span>)</div><div class='output co'>#&gt; [1] FALSE</div><div class='input'>
 <span class='co'># make the expression evaluate to TRUE</span>
 <span class='no'>size</span> <span class='kw'>=</span> <span class='fl'>4</span>
-<span class='fu'><a href='delayed_eval.html'>delayed_eval</a></span>(<span class='no'>y</span>)
-
+<span class='fu'><a href='delayed_eval.html'>delayed_eval</a></span>(<span class='no'>y</span>)</div><div class='output co'>#&gt; [1] TRUE</div><div class='input'>
 
 <span class='co'># custom printing text can be added to the delayed expression</span>
 <span class='no'>f_delay</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>() {
@@ -166,8 +164,7 @@ the expression supplied by parameter 'expr' is used for printing.</p></td>
 <span class='no'>y</span> <span class='kw'>=</span> (<span class='fl'>1</span> + <span class='fu'>f_delay</span>()) <span class='kw'>==</span> <span class='fl'>5</span>
 
 <span class='co'># print with custom text</span>
-<span class='no'>y</span>
-}</div></pre>
+<span class='no'>y</span></div><div class='output co'>#&gt; [1] "((1 + f_delay()) == 5)"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
