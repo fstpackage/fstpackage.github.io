@@ -8,21 +8,25 @@
 
 <title>Changelog • fst</title>
 
+
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/cerulean/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha256-eZrrJcwDc/3uDhsdt61sL2oOBY362qM3lon1gyExkL0=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
 
-<!-- sticky kit -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
+<!-- headroom.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -30,10 +34,9 @@
 
 
 
+
 <meta property="og:title" content="Changelog" />
 
-<meta property="og:image" content="http://www.fstpackage.org/logo.png" />
-<meta name="twitter:card" content="summary" />
 
 
 
@@ -45,6 +48,7 @@
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->
+
 
 
   </head>
@@ -63,7 +67,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">fst</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.0</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.2</span>
       </span>
     </div>
 
@@ -71,7 +75,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fa fa-home fa-lg"></span>
+    <span class="fas fa fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -82,7 +86,6 @@
   <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
-      
       <ul class="nav navbar-nav navbar-right">
         
       </ul>
@@ -92,6 +95,7 @@
 </div><!--/.navbar -->
 
       
+
       </header>
 
 <div class="row">
@@ -101,29 +105,62 @@
       
     </div>
 
-    <div id="fst-090-april-2-2019" class="section level1">
+    <div id="fst-092" class="section level1">
 <h1 class="page-header">
-<a href="#fst-090-april-2-2019" class="anchor"></a>fst 0.9.0 (April 2, 2019)<small> 2019-04-09 </small>
+<a href="#fst-092" class="anchor"></a>fst 0.9.2<small> Unreleased </small>
 </h1>
-<p>Version 0.9.0 of the <code>fst</code> package addresses the request from CRAN maintainers to fix issues identified by rchk. These issues result from PROTECT / UNPROTECT pairs called in the constructor / destructor pairs of C++ classes. rchk (rightfully) warns about those because it can’t determine from the code if pairs are properly matched. With this submission the relevant SEXP classes are protected by containing them in SEXP classes that are already PROTECTED, which allows for removal of the PROTECT / UNPROTECT pairs in question.</p>
-<p>As of <code>fst</code> version 0.9.0, support for fst files generated with <code>fst</code> package versions lower than 0.8.0 has been deprecated. This significantly reduces the (C++) code base and prepares <code>fst</code> for future code changes.</p>
 <div id="library-updates" class="section level2">
 <h2 class="hasAnchor">
 <a href="#library-updates" class="anchor"></a>Library updates</h2>
 <ul>
-<li>Library <code>fstlib</code> updated to version 0.1.1</li>
+<li>Library <code>fstlib</code> updated to version 0.1.6</li>
+<li>Library LZ4 updated to version 1.9.2</li>
+<li>library ZSTD updated to version 1.4.4</li>
 </ul>
 </div>
 <div id="enhancements" class="section level2">
 <h2 class="hasAnchor">
 <a href="#enhancements" class="anchor"></a>Enhancements</h2>
 <ul>
-<li>Method <code>setnrofthreads</code> returns invisible result to avoid printing unwanted output (thanks <a href='https://github.com/renkun-ken'>@renkun-ken</a> for the pull request)</li>
+<li>Incorrect column selection gets a more informative error message (issue #138, thanks Jean-Luc and <a href='https://github.com/Moohan'>@Moohan</a> for reporting).</li>
+<li>Long raw vectors can be hashed with hash_fst (issue #202)</li>
+<li>Empty tables are serialized correctly using <code><a href="../reference/write_fst.html">write_fst()</a></code> (issue #99)</li>
 </ul>
 </div>
 <div id="bugs-solved" class="section level2">
 <h2 class="hasAnchor">
 <a href="#bugs-solved" class="anchor"></a>Bugs solved</h2>
+<ul>
+<li>Ellipsis is forwarded in method <code>str.fst_table()</code> (issue #219, thanks <a href='https://github.com/nbenn'>@nbenn</a> for reporting).</li>
+<li>Coloring is turned off for terminals that don’t support it or when package <code>crayon</code> is not installed (issue #198, thanks <a href='https://github.com/muschellij2'>@muschellij2</a> for reporting and the code fix).</li>
+<li>Method <code><a href="../reference/metadata_fst.html">metadata_fst()</a></code> correctly displays the key of the data table if column names are not in alphabetical order (issue #199, thanks <a href='https://github.com/renkun-ken'>@renkun-ken</a> for the pull request).</li>
+<li>stringsAsFactors argument defaults to FALSE for upcoming R 4.0.0 (issue #234, thanks <a href='https://github.com/CRAN'>@CRAN</a> for reporting)</li>
+</ul>
+</div>
+</div>
+    <div id="fst-090-april-2-2019" class="section level1">
+<h1 class="page-header">
+<a href="#fst-090-april-2-2019" class="anchor"></a>fst 0.9.0 (April 2, 2019)<small> 2019-04-09 </small>
+</h1>
+<p>Version 0.9.0 of the <code>fst</code> package addresses the request from CRAN maintainers to fix issues identified by rchk. These issues result from PROTECT / UNPROTECT pairs called in the constructor / destructor pairs of C++ classes. rchk (rightfully) warns about those because it can’t determine from the code if pairs are properly matched. With this submission the relevant SEXP classes are protected by containing them in SEXP classes that are already PROTECTED, which allows for removal of the PROTECT / UNPROTECT pairs in question.</p>
+<p>As of <code>fst</code> version 0.9.0, support for fst files generated with <code>fst</code> package versions lower than 0.8.0 has been deprecated. This significantly reduces the (C++) code base and prepares <code>fst</code> for future code changes.</p>
+<div id="library-updates-1" class="section level2">
+<h2 class="hasAnchor">
+<a href="#library-updates-1" class="anchor"></a>Library updates</h2>
+<ul>
+<li>Library <code>fstlib</code> updated to version 0.1.1</li>
+</ul>
+</div>
+<div id="enhancements-1" class="section level2">
+<h2 class="hasAnchor">
+<a href="#enhancements-1" class="anchor"></a>Enhancements</h2>
+<ul>
+<li>Method <code>setnrofthreads</code> returns invisible result to avoid printing unwanted output (thanks <a href='https://github.com/renkun-ken'>@renkun-ken</a> for the pull request)</li>
+</ul>
+</div>
+<div id="bugs-solved-1" class="section level2">
+<h2 class="hasAnchor">
+<a href="#bugs-solved-1" class="anchor"></a>Bugs solved</h2>
 <ul>
 <li>Empty subsets can be selected using <code><a href="../reference/fst.html">fst::fst</a></code> (thanks <a href='https://github.com/renkun-ken'>@renkun-ken</a> for reporting)</li>
 </ul>
@@ -139,18 +176,18 @@
 <a href="#fst-0810-december-14-2018" class="anchor"></a>fst 0.8.10 (December 14, 2018)<small> 2018-12-13 </small>
 </h1>
 <p>Version 0.8.10 of the <code>fst</code> package is an intermediate release designed to update the incorporated C++ libraries to their latest versions and to fix reported issues. Also, per request of CRAN maintainers, the OpenMP build option was moved to the correct flag in the Makevars file, resolving a warning in the package check.</p>
-<div id="library-updates-1" class="section level2">
+<div id="library-updates-2" class="section level2">
 <h2 class="hasAnchor">
-<a href="#library-updates-1" class="anchor"></a>Library updates</h2>
+<a href="#library-updates-2" class="anchor"></a>Library updates</h2>
 <ul>
 <li><p>Library <code>fstlib</code> updated to version 0.1.0</p></li>
 <li><p>Library <code>ZSTD</code> updated to version 1.3.7</p></li>
 <li><p>Library <code>LZ4</code> updated to version 1.8.3</p></li>
 </ul>
 </div>
-<div id="bugs-solved-1" class="section level2">
+<div id="bugs-solved-2" class="section level2">
 <h2 class="hasAnchor">
-<a href="#bugs-solved-1" class="anchor"></a>Bugs solved</h2>
+<a href="#bugs-solved-2" class="anchor"></a>Bugs solved</h2>
 <ul>
 <li><p>Method <code><a href="../reference/compress_fst.html">compress_fst()</a></code> can handle vectors with sizes larger than 4 GB (issue #176, thanks <a href='https://github.com/bwlewis'>@bwlewis</a> for reporting)</p></li>
 <li><p>A <em>fst</em> file is correctly read from a subfolder on a network drive where the user does not have access to the top-level folder (issues #136 and #175, thanks <a href='https://github.com/xiaodaigh'>@xiaodaigh</a> for reporting).</p></li>
@@ -185,9 +222,9 @@
 <li><p>Option ‘fst_restore_after_fork’ can be used to select the threading behavior after a fork has ended. Like the <code>data.table</code> package, <code>fst</code> switches back to a single thread when a fork is detected (using OpenMP in a fork can lead to problems). Unlike <code>data.table</code>, the <code>fst</code> package restores the number of threads to it’s previous setting when the fork ends. If this leads to unexpected problems, the user can set the ‘fst_restore_after_fork’ option to FALSE to disable that.</p></li>
 </ul>
 </div>
-<div id="bugs-solved-2" class="section level2">
+<div id="bugs-solved-3" class="section level2">
 <h2 class="hasAnchor">
-<a href="#bugs-solved-2" class="anchor"></a>Bugs solved</h2>
+<a href="#bugs-solved-3" class="anchor"></a>Bugs solved</h2>
 <ul>
 <li>Character encoding of column names correctly stored in the <code>fst</code> format (issue #144, thanks <a href='https://github.com/shrektan'>@shrektan</a> for reporting and discussions).</li>
 </ul>
@@ -205,7 +242,7 @@
 <h1 class="page-header">
 <a href="#fst-084" class="anchor"></a>fst 0.8.4<small> 2018-01-25 </small>
 </h1>
-<p>The v0.8.4 release brings a <code>data.frame</code> interface to the <code>fst</code> package. Column and row selection can now be done directly from the <code>[</code> operator. In addition, it fixes some issues and prepares the package for the next build toolchain of CRAN.</p>
+<p>The v0.8.4 release brings a <code>data.frame</code> interface to the <code>fst</code> package. Column and row selection can now be done directly from the <code><a href="https://rdrr.io/r/base/Extract.html">[</a></code> operator. In addition, it fixes some issues and prepares the package for the next build toolchain of CRAN.</p>
 <div id="new-features-1" class="section level2">
 <h2 class="hasAnchor">
 <a href="#new-features-1" class="anchor"></a>New features</h2>
@@ -213,9 +250,9 @@
 <li>A <code>data.frame</code> interface was added to the package. The user can create a reference object to a <code>fst</code> file with method <code>fst</code>. That reference can be used like a <code>data.frame</code> and will automatically make column- and row- selections in the referenced <code>fst</code> file.</li>
 </ul>
 </div>
-<div id="bugs-solved-3" class="section level2">
+<div id="bugs-solved-4" class="section level2">
 <h2 class="hasAnchor">
-<a href="#bugs-solved-3" class="anchor"></a>Bugs solved</h2>
+<a href="#bugs-solved-4" class="anchor"></a>Bugs solved</h2>
 <ul>
 <li><p>Build issues with the dev build of R have been fixed. In particular, <code>fst</code> now builds correctly with the Clang 6.0 toolchain which will be released by CRAN shortly (thanks <a href='https://github.com/kevinushey'>@kevinushey</a> for reporting the problem and CRAN maintainers for the advance warning.</p></li>
 <li><p>An error was fixed where compressing a short factor column with 128 to 32767 levels but only a single value, returned incorrect results (issue #128, thanks <a href='https://github.com/martinblostein'>@martinblostein</a> for reporting and help fixing the problem).</p></li>
@@ -264,9 +301,9 @@
 <li><p>The core C++ code with the API to read and write <code>fst</code> files, and use compression and hashing now lives in a separate library called <a href="https://github.com/fstpackage/fstlib"><code>fstlib</code></a>. Although not visible to the user, this is a major development allowing <code>fst</code> to be implemented for other languages than <code>R</code> (with comparable performance).</p></li>
 </ul>
 </div>
-<div id="bugs-solved-4" class="section level2">
+<div id="bugs-solved-5" class="section level2">
 <h2 class="hasAnchor">
-<a href="#bugs-solved-4" class="anchor"></a>Bugs solved</h2>
+<a href="#bugs-solved-5" class="anchor"></a>Bugs solved</h2>
 <ul>
 <li><p>Tilde-expansion in <code>write_fst</code> not correctly processed. <em>Thanks <a href='https://github.com/HughParsonage'>@HughParsonage</a>, <a href='https://github.com/PoGibas'>@PoGibas</a>.</em></p></li>
 <li><p>Writing more than INT_MAX rows crashes <code>fst</code>. <em>Thanks <a href='https://github.com/wei-wu-nyc'>@wei-wu-nyc</a></em></p></li>
@@ -274,7 +311,7 @@
 <li><p>Error/crash when saving factor column with 0 factor levels. <em>Thanks <a href='https://github.com/martinblostein'>@martinblostein</a>.</em></p></li>
 <li><p>No warning was given when disk runs out of space during a <code>fstwrite</code> operation.</p></li>
 <li><p>A data.table warning message was given on modification of columns of a sorted table. <em>Thanks <a href='https://github.com/martinblostein'>@martinblostein</a>.</em></p></li>
-<li><p>Stack imbalance warnings under centain conditions. <em>Thanks <a href='https://github.com/ryankennedyio'>@ryankennedyio</a></em></p></li>
+<li><p>Stack imbalance warnings under certain conditions. <em>Thanks <a href='https://github.com/ryankennedyio'>@ryankennedyio</a></em></p></li>
 </ul>
 </div>
 <div id="benchmarks" class="section level2">
@@ -298,6 +335,7 @@
     <div id="tocnav">
       <h2>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
+        <li><a href="#fst-092">0.9.2</a></li>
         <li><a href="#fst-090-april-2-2019">0.9.0</a></li>
         <li><a href="#fst-0810-december-14-2018">0.8.10</a></li>
         <li><a href="#fst-088-june-6-2018">0.8.8</a></li>
@@ -310,19 +348,23 @@
 
 </div>
 
+
       <footer>
       <div class="copyright">
   <p>Developed by Mark Klik.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.3.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
 </div>
+
       </footer>
    </div>
 
   
 
+
   </body>
 </html>
+
 
