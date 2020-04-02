@@ -208,16 +208,16 @@ writes `x` to a `fst` file and invisibly returns `x` (so you can use this functi
 <span class='no'>x</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span>(<span class='kw'>A</span> <span class='kw'>=</span> <span class='fl'>1</span>:<span class='fl'>10000</span>, <span class='kw'>B</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='fl'>TRUE</span>, <span class='fl'>FALSE</span>, <span class='fl'>NA</span>), <span class='fl'>10000</span>, <span class='kw'>replace</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>))
 
 <span class='co'># Default compression</span>
-<span class='fu'>write_fst</span>(<span class='no'>x</span>, <span class='st'>"dataset.fst"</span>)  <span class='co'># filesize: 17 KB</span>
-<span class='no'>y</span> <span class='kw'>&lt;-</span> <span class='fu'>read_fst</span>(<span class='st'>"dataset.fst"</span>) <span class='co'># read fst file</span>
-
+<span class='no'>fst_file</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempfile</a></span>(<span class='kw'>fileext</span> <span class='kw'>=</span> <span class='st'>".fst"</span>)
+<span class='fu'>write_fst</span>(<span class='no'>x</span>, <span class='no'>fst_file</span>)  <span class='co'># filesize: 17 KB</span>
+<span class='no'>y</span> <span class='kw'>&lt;-</span> <span class='fu'>read_fst</span>(<span class='no'>fst_file</span>) <span class='co'># read fst file</span>
 <span class='co'># Maximum compression</span>
-<span class='fu'>write_fst</span>(<span class='no'>x</span>, <span class='st'>"dataset.fst"</span>, <span class='fl'>100</span>)  <span class='co'># fileSize: 4 KB</span>
-<span class='no'>y</span> <span class='kw'>&lt;-</span> <span class='fu'>read_fst</span>(<span class='st'>"dataset.fst"</span>) <span class='co'># read fst file</span>
+<span class='fu'>write_fst</span>(<span class='no'>x</span>, <span class='no'>fst_file</span>, <span class='fl'>100</span>)  <span class='co'># fileSize: 4 KB</span>
+<span class='no'>y</span> <span class='kw'>&lt;-</span> <span class='fu'>read_fst</span>(<span class='no'>fst_file</span>) <span class='co'># read fst file</span>
 
 <span class='co'># Random access</span>
-<span class='no'>y</span> <span class='kw'>&lt;-</span> <span class='fu'>read_fst</span>(<span class='st'>"dataset.fst"</span>, <span class='st'>"B"</span>) <span class='co'># read selection of columns</span>
-<span class='no'>y</span> <span class='kw'>&lt;-</span> <span class='fu'>read_fst</span>(<span class='st'>"dataset.fst"</span>, <span class='st'>"A"</span>, <span class='fl'>100</span>, <span class='fl'>200</span>) <span class='co'># read selection of columns and rows</span></div></pre>
+<span class='no'>y</span> <span class='kw'>&lt;-</span> <span class='fu'>read_fst</span>(<span class='no'>fst_file</span>, <span class='st'>"B"</span>) <span class='co'># read selection of columns</span>
+<span class='no'>y</span> <span class='kw'>&lt;-</span> <span class='fu'>read_fst</span>(<span class='no'>fst_file</span>, <span class='st'>"A"</span>, <span class='fl'>100</span>, <span class='fl'>200</span>) <span class='co'># read selection of columns and rows</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

@@ -143,15 +143,16 @@ Has class <code>fstmetadata</code>.</p>
   <span class='kw'>Last</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sample.html'>sample</a></span>(<span class='no'>LETTERS</span>, <span class='fl'>10</span>))
 
 <span class='co'># Write to fst file</span>
-<span class='fu'><a href='write_fst.html'>write_fst</a></span>(<span class='no'>x</span>, <span class='st'>"dataset.fst"</span>)
+<span class='no'>fst_file</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/tempfile.html'>tempfile</a></span>(<span class='kw'>fileext</span> <span class='kw'>=</span> <span class='st'>".fst"</span>)
+<span class='fu'><a href='write_fst.html'>write_fst</a></span>(<span class='no'>x</span>, <span class='no'>fst_file</span>)
 
 <span class='co'># Display meta information</span>
-<span class='fu'>metadata_fst</span>(<span class='st'>"dataset.fst"</span>)</div><div class='output co'>#&gt; &lt;fst file&gt;
-#&gt; 10 rows, 3 columns (dataset.fst)
+<span class='fu'>metadata_fst</span>(<span class='no'>fst_file</span>)</div><div class='output co'>#&gt; &lt;fst file&gt;
+#&gt; 10 rows, 3 columns (file347037b13cf4.fst)
 #&gt; 
 #&gt; * 'First' : integer
 #&gt; * 'Second': logical
-#&gt; * 'Last'  : factor</div></pre>
+#&gt; * 'Last'  : character</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

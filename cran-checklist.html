@@ -124,19 +124,20 @@
 <li>Bump version to even value in DESCRIPTION and check package startup message</li>
 <li>Update README.Rmd and verify generated README.md on Github (release)</li>
 <li>Update cran_comments.md</li>
+<li>Build docs folder using pkgdown::build_site()</li>
 <li>Update NEWS.md and make sure to remove ‘(in development)’ in the version title and update the version number</li>
 <li>Credit all GitHub contributions in NEWS.md</li>
-<li>Build docs folder using pkgdown::build_site()</li>
-<li>Merge branch release into master</li>
 <li>Submit to CRAN</li>
-<li>Commit the fstpackage.github.io repository with the latest docs</li>
 </ul>
 </div>
 <div id="after-releasing-to-cran" class="section level1">
 <h1 class="hasAnchor">
 <a href="#after-releasing-to-cran" class="anchor"></a>After releasing to CRAN</h1>
 <ul>
-<li>Update NEWS.md with the release data</li>
+<li>Update NEWS.md with the release date</li>
+<li>Merge branch release into master</li>
+<li>Tag the release on Github</li>
+<li>Commit the fstpackage.github.io repository with the latest docs</li>
 <li>Merge branch master into release</li>
 <li>Go to the repository release page and create a new release with tag version vx.y.z. Copy and paste the contents of the relevant NEWS.md section into the release notes.</li>
 <li>Add ‘(in development)’ to version title in NEWS.md and update to odd version number</li>
