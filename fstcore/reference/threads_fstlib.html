@@ -44,8 +44,8 @@
 used. More threads will allow the CPU to perform more computational intensive tasks simultaneously,
 speeding up the operation. Using more threads also introduces some overhead that will scale with the
 number of threads used. Therefore, using the maximum number of available threads is not always the
-fastest solution. With threads_fst the number of threads can be adjusted to the users
-specific requirements. As a default, fst uses a number of threads equal to the number of
+fastest solution. With threads_fstlib the number of threads can be adjusted to the users
+specific requirements. As a default, fstcore uses a number of threads equal to the number of
 logical cores in the system." />
 
 
@@ -127,8 +127,8 @@ logical cores in the system." />
 used. More threads will allow the CPU to perform more computational intensive tasks simultaneously,
 speeding up the operation. Using more threads also introduces some overhead that will scale with the
 number of threads used. Therefore, using the maximum number of available threads is not always the
-fastest solution. With <code>threads_fst</code> the number of threads can be adjusted to the users
-specific requirements. As a default, <code>fst</code> uses a number of threads equal to the number of
+fastest solution. With <code>threads_fstlib</code> the number of threads can be adjusted to the users
+specific requirements. As a default, <code>fstcore</code> uses a number of threads equal to the number of
 logical cores in the system.</p>
     </div>
 
@@ -144,12 +144,12 @@ multithreaded operations.</p></td>
     </tr>
     <tr>
       <th>reset_after_fork</th>
-      <td><p>when <code>fst</code> is running in a forked process, the usage of OpenMP can
-create problems. To prevent these, <code>fst</code> switches back to single core usage when it detects a fork.
+      <td><p>when <code>fstcore</code> is running in a forked process, the usage of OpenMP can
+create problems. To prevent these, <code>fstcore</code> switches back to single core usage when it detects a fork.
 After the fork, the number of threads is reset to it's initial setting. However, on some compilers
 (e.g. Intel), switching back to multi-threaded mode can lead to issues. When <code>reset_after_fork</code>
-is set to <code>FALSE</code>, <code>fst</code> is left in single-threaded mode after the fork ends. After the fork,
-multithreading can be activated again manually by calling <code>threads_fst</code> with an appropriate value
+is set to <code>FALSE</code>, <code>fstcore</code> is left in single-threaded mode after the fork ends. After the fork,
+multithreading can be activated again manually by calling <code>threads_fstlib</code> with an appropriate value
 for <code>nr_of_threads</code>. The default (<code>reset_after_fork = NULL</code>) leaves the fork behavior unchanged.</p></td>
     </tr>
     </table>
@@ -162,8 +162,19 @@ for <code>nr_of_threads</code>. The default (<code>reset_after_fork = NULL</code
     <p>The number of threads can also be set with <code><a href='https://rdrr.io/r/base/options.html'>options(fst_threads = N)</a></code>.
 NOTE: This option is only read when the package's namespace is first loaded, with commands like
 <code>library</code>, <code>require</code>, or <code>::</code>. If you have already used one of these, you
-must use <code>threads_fst</code> to set the number of threads.</p>
+must use <code>threads_fstlib</code> to set the number of threads.</p>
 
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='co'># get current number of threads</span>
+<span class='fu'>threads_fstlib</span>()</div><div class='output co'>#&gt; [1] 12</div><div class='input'>
+<span class='co'># set the number of threads</span>
+<span class='fu'>threads_fstlib</span>(<span class='fl'>12</span>)
+
+<span class='co'># leave in single threaded mode after a fork</span>
+<span class='fu'>threads_fstlib</span>(<span class='fl'>12</span>, <span class='kw'>reset_after_fork</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)
+
+<span class='co'># reset number of threads after a fork</span>
+<span class='fu'>threads_fstlib</span>(<span class='fl'>12</span>, <span class='kw'>reset_after_fork</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -179,7 +190,7 @@ must use <code>threads_fst</code> to set the number of threads.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
 
       </footer>

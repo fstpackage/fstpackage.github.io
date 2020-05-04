@@ -1,8 +1,8 @@
 pandoc: 2.7.3
-pkgdown: 1.5.0
+pkgdown: 1.5.1
 pkgdown_sha: ~
 articles: []
-last_built: 2020-04-17T17:36Z
+last_built: 2020-05-04T14:19Z
 urls:
   reference: http://www.fstpackage.org/fstcore/reference
   article: http://www.fstpackage.org/fstcore/articles
