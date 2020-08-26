@@ -10,23 +10,27 @@
 
 
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
-<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/cerulean/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/cerulean/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous" />
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
 <!-- headroom.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -53,7 +57,7 @@
 
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-news">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -67,7 +71,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">fst</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.4</span>
       </span>
     </div>
 
@@ -87,7 +91,12 @@
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/fstpackage/fst/">
+    <span class="fab fa fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -101,12 +110,25 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Changelog <small></small></h1>
-      
+      <h1 data-toc-skip>Changelog <small></small></h1>
+      <small>Source: <a href='https://github.com/fstpackage/fst/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
+    <div id="fst-094" class="section level1">
+<h1 class="page-header" data-toc-text="0.9.4">
+<a href="#fst-094" class="anchor"></a>fst 0.9.4<small> Unreleased </small>
+</h1>
+<p>Version 0.9.4 is a minor update to ‘hotfix’ an issue with suggested packages as reported by CRAN.</p>
+<div id="bugs-solved" class="section level2">
+<h2 class="hasAnchor">
+<a href="#bugs-solved" class="anchor"></a>Bugs solved</h2>
+<ul>
+<li>Packages <code>nanotime</code>, <code>bit64</code> and <code>lintr</code> are now used conditionally as is required for packages suggested in DESCRIPTION, see ‘Writing R Extensions’ 1.1.3.1 (thanks <a href='https://github.com/CRAN'>@CRAN</a> for reporting)</li>
+</ul>
+</div>
+</div>
     <div id="fst-092" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="0.9.2">
 <a href="#fst-092" class="anchor"></a>fst 0.9.2<small> 2020-04-01 </small>
 </h1>
 <p>Version 0.9.2 of the <code>fst</code> package brings support for zero-row table serialization and compression for long vectors. In addition, <code>fst</code> was prepared for the change in the default settings for the stringsAsFactors argument (data.frame) in R 4.0.0.</p>
@@ -123,24 +145,24 @@
 <h2 class="hasAnchor">
 <a href="#enhancements" class="anchor"></a>Enhancements</h2>
 <ul>
-<li>Incorrect column selection gets a more informative error message (issue #138, thanks Jean-Luc and <a href='https://github.com/Moohan'>@Moohan</a> for reporting).</li>
-<li>Long raw vectors can be hashed with hash_fst (issue #202)</li>
-<li>Empty tables are serialized correctly using <code><a href="../reference/write_fst.html">write_fst()</a></code> (issue #99)</li>
+<li>Incorrect column selection gets a more informative error message (issue <a href='https://github.com/fstpackage/fst/issues/138'>#138</a>, thanks Jean-Luc and <a href='https://github.com/Moohan'>@Moohan</a> for reporting).</li>
+<li>Long raw vectors can be hashed with hash_fst (issue <a href='https://github.com/fstpackage/fst/issues/202'>#202</a>)</li>
+<li>Empty tables are serialized correctly using <code><a href="../reference/write_fst.html">write_fst()</a></code> (issue <a href='https://github.com/fstpackage/fst/issues/99'>#99</a>)</li>
 </ul>
 </div>
-<div id="bugs-solved" class="section level2">
+<div id="bugs-solved-1" class="section level2">
 <h2 class="hasAnchor">
-<a href="#bugs-solved" class="anchor"></a>Bugs solved</h2>
+<a href="#bugs-solved-1" class="anchor"></a>Bugs solved</h2>
 <ul>
-<li>Ellipsis is forwarded in method <code>str.fst_table()</code> (issue #219, thanks <a href='https://github.com/nbenn'>@nbenn</a> for reporting).</li>
-<li>Coloring is turned off for terminals that don’t support it or when package <code>crayon</code> is not installed (issue #198, thanks <a href='https://github.com/muschellij2'>@muschellij2</a> for reporting and the code fix).</li>
-<li>Method <code><a href="../reference/metadata_fst.html">metadata_fst()</a></code> correctly displays the key of the data table if column names are not in alphabetical order (issue #199, thanks <a href='https://github.com/renkun-ken'>@renkun-ken</a> for the pull request).</li>
-<li>stringsAsFactors argument defaults to FALSE for upcoming R 4.0.0 (issue #234, thanks <a href='https://github.com/CRAN'>@CRAN</a> for reporting)</li>
+<li>Ellipsis is forwarded in method <code>str.fst_table()</code> (issue <a href='https://github.com/fstpackage/fst/issues/219'>#219</a>, thanks <a href='https://github.com/nbenn'>@nbenn</a> for reporting).</li>
+<li>Coloring is turned off for terminals that don’t support it or when package <code>crayon</code> is not installed (issue <a href='https://github.com/fstpackage/fst/issues/198'>#198</a>, thanks <a href='https://github.com/muschellij2'>@muschellij2</a> for reporting and the code fix).</li>
+<li>Method <code><a href="../reference/metadata_fst.html">metadata_fst()</a></code> correctly displays the key of the data table if column names are not in alphabetical order (issue <a href='https://github.com/fstpackage/fst/issues/199'>#199</a>, thanks <a href='https://github.com/renkun-ken'>@renkun-ken</a> for the pull request).</li>
+<li>stringsAsFactors argument defaults to FALSE for upcoming R 4.0.0 (issue <a href='https://github.com/fstpackage/fst/issues/234'>#234</a>, thanks <a href='https://github.com/CRAN'>@CRAN</a> for reporting)</li>
 </ul>
 </div>
 </div>
     <div id="fst-090" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="0.9.0">
 <a href="#fst-090" class="anchor"></a>fst 0.9.0<small> 2019-04-09 </small>
 </h1>
 <p>Version 0.9.0 of the <code>fst</code> package addresses the request from CRAN maintainers to fix issues identified by rchk. These issues result from PROTECT / UNPROTECT pairs called in the constructor / destructor pairs of C++ classes. rchk (rightfully) warns about those because it can’t determine from the code if pairs are properly matched. With this submission the relevant SEXP classes are protected by containing them in SEXP classes that are already PROTECTED, which allows for removal of the PROTECT / UNPROTECT pairs in question.</p>
@@ -159,9 +181,9 @@
 <li>Method <code>setnrofthreads</code> returns invisible result to avoid printing unwanted output (thanks <a href='https://github.com/renkun-ken'>@renkun-ken</a> for the pull request)</li>
 </ul>
 </div>
-<div id="bugs-solved-1" class="section level2">
+<div id="bugs-solved-2" class="section level2">
 <h2 class="hasAnchor">
-<a href="#bugs-solved-1" class="anchor"></a>Bugs solved</h2>
+<a href="#bugs-solved-2" class="anchor"></a>Bugs solved</h2>
 <ul>
 <li>Empty subsets can be selected using <code><a href="../reference/fst.html">fst::fst</a></code> (thanks <a href='https://github.com/renkun-ken'>@renkun-ken</a> for reporting)</li>
 </ul>
@@ -173,7 +195,7 @@
 </div>
 </div>
     <div id="fst-0810" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="0.8.10">
 <a href="#fst-0810" class="anchor"></a>fst 0.8.10<small> 2018-12-13 </small>
 </h1>
 <p>Version 0.8.10 of the <code>fst</code> package is an intermediate release designed to update the incorporated C++ libraries to their latest versions and to fix reported issues. Also, per request of CRAN maintainers, the OpenMP build option was moved to the correct flag in the Makevars file, resolving a warning in the package check.</p>
@@ -186,31 +208,31 @@
 <li><p>Library <code>LZ4</code> updated to version 1.8.3</p></li>
 </ul>
 </div>
-<div id="bugs-solved-2" class="section level2">
+<div id="bugs-solved-3" class="section level2">
 <h2 class="hasAnchor">
-<a href="#bugs-solved-2" class="anchor"></a>Bugs solved</h2>
+<a href="#bugs-solved-3" class="anchor"></a>Bugs solved</h2>
 <ul>
-<li><p>Method <code><a href="../reference/compress_fst.html">compress_fst()</a></code> can handle vectors with sizes larger than 4 GB (issue #176, thanks <a href='https://github.com/bwlewis'>@bwlewis</a> for reporting)</p></li>
-<li><p>A <em>fst</em> file is correctly read from a subfolder on a network drive where the user does not have access to the top-level folder (issues #136 and #175, thanks <a href='https://github.com/xiaodaigh'>@xiaodaigh</a> for reporting).</p></li>
-<li><p>The suggested data.table dependency is now properly escaped (issue #181, thanks <a href='https://github.com/jangorecki'>@jangorecki</a> for the pull request)</p></li>
+<li><p>Method <code><a href="../reference/compress_fst.html">compress_fst()</a></code> can handle vectors with sizes larger than 4 GB (issue <a href='https://github.com/fstpackage/fst/issues/176'>#176</a>, thanks <a href='https://github.com/bwlewis'>@bwlewis</a> for reporting)</p></li>
+<li><p>A <em>fst</em> file is correctly read from a subfolder on a network drive where the user does not have access to the top-level folder (issues <a href='https://github.com/fstpackage/fst/issues/136'>#136</a> and <a href='https://github.com/fstpackage/fst/issues/175'>#175</a>, thanks <a href='https://github.com/xiaodaigh'>@xiaodaigh</a> for reporting).</p></li>
+<li><p>The suggested data.table dependency is now properly escaped (issue <a href='https://github.com/fstpackage/fst/issues/181'>#181</a>, thanks <a href='https://github.com/jangorecki'>@jangorecki</a> for the pull request)</p></li>
 </ul>
 </div>
 <div id="documentation-1" class="section level2">
 <h2 class="hasAnchor">
 <a href="#documentation-1" class="anchor"></a>Documentation</h2>
 <ul>
-<li>Documentation updates (issue #158, thanks <a href='https://github.com/HughParsonage'>@HughParsonage</a> for submitting)</li>
+<li>Documentation updates (issue <a href='https://github.com/fstpackage/fst/issues/158'>#158</a>, thanks <a href='https://github.com/HughParsonage'>@HughParsonage</a> for submitting)</li>
 </ul>
 </div>
 </div>
     <div id="fst-088" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="0.8.8">
 <a href="#fst-088" class="anchor"></a>fst 0.8.8<small> 2018-06-07 </small>
 </h1>
 <p>Version 0.8.8 of the <code>fst</code> package is an intermediate release designed to fix valgrind warnings reported on CRAN builds (per request of CRAN maintainers). These warnings were due to <code>fst</code> writing uninitialized data buffers to file, which was done to maximize speed. To fix these warnings (and for safety), all memory blocks are now initialized to zero before being written to disk.</p>
 </div>
     <div id="fst-086" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="0.8.6">
 <a href="#fst-086" class="anchor"></a>fst 0.8.6<small> 2018-05-16 </small>
 </h1>
 <p>Version 0.8.6 of the <code>fst</code> package brings clearer printing of <code>fst_table</code> objects. It also includes optimizations for controlling the number of threads used by the package during reads and writes and after a fork has ended. The <code>LZ4</code> and <code>ZSTD</code> compression libraries are updated to their latest (and fastest) releases. UTF-8 encoded column names are now correctly stored in the <code>fst</code> format.</p>
@@ -218,29 +240,29 @@
 <h2 class="hasAnchor">
 <a href="#new-features" class="anchor"></a>New features</h2>
 <ul>
-<li><p>More advanced printing generic of the <code>fst_table</code> reference object, showing column types, (possible) keys, and the table header and footer data (issue #131, thanks <a href='https://github.com/renkun-ken'>@renkun-ken</a> for reporting and discussions).</p></li>
-<li><p>User has more control over the number of threads used by fst. Option ‘fst_threads’ can now be used to initialize the number of threads when the package is first loaded (issue #132, thanks to <a href='https://github.com/karldw'>@karldw</a> for the pull request).</p></li>
+<li><p>More advanced printing generic of the <code>fst_table</code> reference object, showing column types, (possible) keys, and the table header and footer data (issue <a href='https://github.com/fstpackage/fst/issues/131'>#131</a>, thanks <a href='https://github.com/renkun-ken'>@renkun-ken</a> for reporting and discussions).</p></li>
+<li><p>User has more control over the number of threads used by fst. Option ‘fst_threads’ can now be used to initialize the number of threads when the package is first loaded (issue <a href='https://github.com/fstpackage/fst/issues/132'>#132</a>, thanks to <a href='https://github.com/karldw'>@karldw</a> for the pull request).</p></li>
 <li><p>Option ‘fst_restore_after_fork’ can be used to select the threading behavior after a fork has ended. Like the <code>data.table</code> package, <code>fst</code> switches back to a single thread when a fork is detected (using OpenMP in a fork can lead to problems). Unlike <code>data.table</code>, the <code>fst</code> package restores the number of threads to it’s previous setting when the fork ends. If this leads to unexpected problems, the user can set the ‘fst_restore_after_fork’ option to FALSE to disable that.</p></li>
 </ul>
 </div>
-<div id="bugs-solved-3" class="section level2">
+<div id="bugs-solved-4" class="section level2">
 <h2 class="hasAnchor">
-<a href="#bugs-solved-3" class="anchor"></a>Bugs solved</h2>
+<a href="#bugs-solved-4" class="anchor"></a>Bugs solved</h2>
 <ul>
-<li>Character encoding of column names correctly stored in the <code>fst</code> format (issue #144, thanks <a href='https://github.com/shrektan'>@shrektan</a> for reporting and discussions).</li>
+<li>Character encoding of column names correctly stored in the <code>fst</code> format (issue <a href='https://github.com/fstpackage/fst/issues/144'>#144</a>, thanks <a href='https://github.com/shrektan'>@shrektan</a> for reporting and discussions).</li>
 </ul>
 </div>
 <div id="documentation-2" class="section level2">
 <h2 class="hasAnchor">
 <a href="#documentation-2" class="anchor"></a>Documentation</h2>
 <ul>
-<li><p>Improved accuracy of fst_table documentation regarding random row access (issue #143, thanks <a href='https://github.com/martinblostein'>@martinblostein</a> for pointed out the unclarity)</p></li>
-<li><p>Improved documentation on background threads during <code><a href="../reference/write_fst.html">write_fst()</a></code> and <code><a href="../reference/write_fst.html">read_fst()</a></code> (issue #121, thanks <a href='https://github.com/krlmlr'>@krlmlr</a> for suggestions and discussion)</p></li>
+<li><p>Improved accuracy of fst_table documentation regarding random row access (issue <a href='https://github.com/fstpackage/fst/issues/143'>#143</a>, thanks <a href='https://github.com/martinblostein'>@martinblostein</a> for pointed out the unclarity)</p></li>
+<li><p>Improved documentation on background threads during <code><a href="../reference/write_fst.html">write_fst()</a></code> and <code><a href="../reference/write_fst.html">read_fst()</a></code> (issue <a href='https://github.com/fstpackage/fst/issues/121'>#121</a>, thanks <a href='https://github.com/krlmlr'>@krlmlr</a> for suggestions and discussion)</p></li>
 </ul>
 </div>
 </div>
     <div id="fst-084" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="0.8.4">
 <a href="#fst-084" class="anchor"></a>fst 0.8.4<small> 2018-01-25 </small>
 </h1>
 <p>The v0.8.4 release brings a <code>data.frame</code> interface to the <code>fst</code> package. Column and row selection can now be done directly from the <code><a href="https://rdrr.io/r/base/Extract.html">[</a></code> operator. In addition, it fixes some issues and prepares the package for the next build toolchain of CRAN.</p>
@@ -251,26 +273,26 @@
 <li>A <code>data.frame</code> interface was added to the package. The user can create a reference object to a <code>fst</code> file with method <code>fst</code>. That reference can be used like a <code>data.frame</code> and will automatically make column- and row- selections in the referenced <code>fst</code> file.</li>
 </ul>
 </div>
-<div id="bugs-solved-4" class="section level2">
+<div id="bugs-solved-5" class="section level2">
 <h2 class="hasAnchor">
-<a href="#bugs-solved-4" class="anchor"></a>Bugs solved</h2>
+<a href="#bugs-solved-5" class="anchor"></a>Bugs solved</h2>
 <ul>
 <li><p>Build issues with the dev build of R have been fixed. In particular, <code>fst</code> now builds correctly with the Clang 6.0 toolchain which will be released by CRAN shortly (thanks <a href='https://github.com/kevinushey'>@kevinushey</a> for reporting the problem and CRAN maintainers for the advance warning.</p></li>
-<li><p>An error was fixed where compressing a short factor column with 128 to 32767 levels but only a single value, returned incorrect results (issue #128, thanks <a href='https://github.com/martinblostein'>@martinblostein</a> for reporting and help fixing the problem).</p></li>
-<li><p>An error was fixed where columns f type ‘ITime’ were incorrectly serialized (issue #126, thanks <a href='https://github.com/Giqles'>@Giqles</a> for reporting the problem).</p></li>
-<li><p>An error was fixed where using <code>fst</code> as a dependency in another package and building that package in RStudio, crashed RStudio. The problem was that RStudio uses a fork to build or document a package. That fork made <code>fst</code> use OpenMP library methods, which leads to crashes on macOS. After the fix, no calls to any OpenMP library method are now made from <code>fst</code> when it’s run from a forked process (issue #100 and issue #109, thanks to <a href='https://github.com/eipi10'>@eipi10</a>, <a href='https://github.com/PeteHaitch'>@PeteHaitch</a>, <a href='https://github.com/kevinushey'>@kevinushey</a>, <a href='https://github.com/thierrygosselin'>@thierrygosselin</a>, <a href='https://github.com/xiaodaigh'>@xiaodaigh</a> and <a href='https://github.com/jzzcutler'>@jzzcutler</a> for reporting the problem and help fix it).</p></li>
+<li><p>An error was fixed where compressing a short factor column with 128 to 32767 levels but only a single value, returned incorrect results (issue <a href='https://github.com/fstpackage/fst/issues/128'>#128</a>, thanks <a href='https://github.com/martinblostein'>@martinblostein</a> for reporting and help fixing the problem).</p></li>
+<li><p>An error was fixed where columns f type ‘ITime’ were incorrectly serialized (issue <a href='https://github.com/fstpackage/fst/issues/126'>#126</a>, thanks <a href='https://github.com/Giqles'>@Giqles</a> for reporting the problem).</p></li>
+<li><p>An error was fixed where using <code>fst</code> as a dependency in another package and building that package in RStudio, crashed RStudio. The problem was that RStudio uses a fork to build or document a package. That fork made <code>fst</code> use OpenMP library methods, which leads to crashes on macOS. After the fix, no calls to any OpenMP library method are now made from <code>fst</code> when it’s run from a forked process (issue <a href='https://github.com/fstpackage/fst/issues/100'>#100</a> and issue <a href='https://github.com/fstpackage/fst/issues/109'>#109</a>, thanks to <a href='https://github.com/eipi10'>@eipi10</a>, <a href='https://github.com/PeteHaitch'>@PeteHaitch</a>, <a href='https://github.com/kevinushey'>@kevinushey</a>, <a href='https://github.com/thierrygosselin'>@thierrygosselin</a>, <a href='https://github.com/xiaodaigh'>@xiaodaigh</a> and <a href='https://github.com/jzzcutler'>@jzzcutler</a> for reporting the problem and help fix it).</p></li>
 </ul>
 </div>
 <div id="documentation-3" class="section level2">
 <h2 class="hasAnchor">
 <a href="#documentation-3" class="anchor"></a>Documentation</h2>
 <ul>
-<li>Documentation for method <code>write_fst</code> was improved (issue #123, thanks <a href='https://github.com/krlmlr'>@krlmlr</a> for reporting and submitting a pull request).</li>
+<li>Documentation for method <code>write_fst</code> was improved (issue <a href='https://github.com/fstpackage/fst/issues/123'>#123</a>, thanks <a href='https://github.com/krlmlr'>@krlmlr</a> for reporting and submitting a pull request).</li>
 </ul>
 </div>
 </div>
     <div id="fst-082" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="0.8.2">
 <a href="#fst-082" class="anchor"></a>fst 0.8.2<small> 2017-12-18 </small>
 </h1>
 <div id="new-features-2" class="section level2">
@@ -302,9 +324,9 @@
 <li><p>The core C++ code with the API to read and write <code>fst</code> files, and use compression and hashing now lives in a separate library called <a href="https://github.com/fstpackage/fstlib"><code>fstlib</code></a>. Although not visible to the user, this is a major development allowing <code>fst</code> to be implemented for other languages than <code>R</code> (with comparable performance).</p></li>
 </ul>
 </div>
-<div id="bugs-solved-5" class="section level2">
+<div id="bugs-solved-6" class="section level2">
 <h2 class="hasAnchor">
-<a href="#bugs-solved-5" class="anchor"></a>Bugs solved</h2>
+<a href="#bugs-solved-6" class="anchor"></a>Bugs solved</h2>
 <ul>
 <li><p>Tilde-expansion in <code>write_fst</code> not correctly processed. <em>Thanks <a href='https://github.com/HughParsonage'>@HughParsonage</a>, <a href='https://github.com/PoGibas'>@PoGibas</a>.</em></p></li>
 <li><p>Writing more than INT_MAX rows crashes <code>fst</code>. <em>Thanks <a href='https://github.com/wei-wu-nyc'>@wei-wu-nyc</a></em></p></li>
@@ -332,19 +354,10 @@
 </div>
   </div>
 
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <div id="tocnav">
-      <h2>Contents</h2>
-      <ul class="nav nav-pills nav-stacked">
-        <li><a href="#fst-092">0.9.2</a></li>
-        <li><a href="#fst-090">0.9.0</a></li>
-        <li><a href="#fst-0810">0.8.10</a></li>
-        <li><a href="#fst-088">0.8.8</a></li>
-        <li><a href="#fst-086">0.8.6</a></li>
-        <li><a href="#fst-084">0.8.4</a></li>
-        <li><a href="#fst-082">0.8.2</a></li>
-      </ul>
-    </div>
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 
 </div>
@@ -356,7 +369,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
 
       </footer>
