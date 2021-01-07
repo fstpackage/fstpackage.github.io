@@ -71,7 +71,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">fstcore</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.4</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.6</span>
       </span>
     </div>
 
@@ -79,7 +79,7 @@
       <ul class="nav navbar-nav">
         <li>
   <a href="../index.html">
-    <span class="fas fa fas fa-home fa-lg"></span>
+    <span class="fas fa-home fa-lg"></span>
      
   </a>
 </li>
@@ -93,7 +93,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li>
   <a href="https://github.com/fstpackage/fst/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -114,9 +114,36 @@
       <small>Source: <a href='https://github.com/fstpackage/fst/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
-    <div id="fstcore-094" class="section level1">
+    <div id="fstcore-096" class="section level1">
+<h1 class="page-header" data-toc-text="0.9.6">
+<a href="#fstcore-096" class="anchor"></a>fstcore 0.9.6<small> 2021-01-05 </small>
+</h1>
+<p>With version 0.9.6, the license of fstcore changes from AGPL version 3 to MPL version 2. This allows for less restrictive use of the fstcore package. In particular, closed-source (commercial) solutions can now use fstcore (call it’s API), as was impossible under AGPL (under AGPL, products can only use <code>fstcore</code> if they make the products source code available under AGPL or more restrictive license).</p>
+<div id="library-updates" class="section level2">
+<h2 class="hasAnchor">
+<a href="#library-updates" class="anchor"></a>Library updates</h2>
+<ul>
+<li>ZSTD has been updated to version 1.4.5</li>
+<li>fstlib has been updated to version 0.1.6</li>
+</ul>
+</div>
+<div id="enhancements" class="section level2">
+<h2 class="hasAnchor">
+<a href="#enhancements" class="anchor"></a>Enhancements</h2>
+<ul>
+<li>Numeric values can now be used to select a row range, including values larger than 2^31 to select a subset from long vector columns (thanks <a href='https://github.com/dipterix'>@dipterix</a> for reporting)</li>
+<li>The random seed is not initilized anymore when <code>fstcore</code> is loaded (see fst<a href='https://github.com/fstpackage/fst/issues/251'>#251</a>, thanks <a href='https://github.com/mlell'>@mlell</a> for investigating and <a href='https://github.com/riccardoporreca'>@riccardoporreca</a> for providing the solution)</li>
+</ul>
+</div>
+<div id="bug-fixes" class="section level2">
+<h2 class="hasAnchor">
+<a href="#bug-fixes" class="anchor"></a>Bug Fixes</h2>
+</div>
+</div>
+    <div id="fstcore-094-2020-05-04" class="section level1">
 <h1 class="page-header" data-toc-text="0.9.4">
-<a href="#fstcore-094" class="anchor"></a>fstcore 0.9.4</h1>
+<a href="#fstcore-094-2020-05-04" class="anchor"></a>fstcore 0.9.4 (2020-05-04)<small> 2020-05-04 </small>
+</h1>
 <p>R package fstcore contains the R bindings to the C++ fstlib library needed to interface with <em>fst</em> files as well as the LZ4 and ZSTD sources. It was developed as a package separate from the fst package to facilitate independent updates to the fstlib, LZ4 and ZSTD libraries.</p>
 </div>
   </div>
@@ -136,7 +163,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
 </div>
 
       </footer>
