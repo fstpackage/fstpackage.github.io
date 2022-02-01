@@ -1,7 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://www.fstpackage.org/404.html</loc>
+  </url>
+  <url>
+    <loc>http://www.fstpackage.org/authors.html</loc>
+  </url>
+  <url>
+    <loc>http://www.fstpackage.org/CONDUCT.html</loc>
+  </url>
+  <url>
+    <loc>http://www.fstpackage.org/CONTRIBUTING.html</loc>
+  </url>
+  <url>
+    <loc>http://www.fstpackage.org/cran-checklist.html</loc>
+  </url>
+  <url>
     <loc>http://www.fstpackage.org/index.html</loc>
+  </url>
+  <url>
+    <loc>http://www.fstpackage.org/LICENSE-text.html</loc>
+  </url>
+  <url>
+    <loc>http://www.fstpackage.org/news/index.html</loc>
   </url>
   <url>
     <loc>http://www.fstpackage.org/reference/compress_fst.html</loc>
@@ -17,6 +38,9 @@
   </url>
   <url>
     <loc>http://www.fstpackage.org/reference/hash_fst.html</loc>
+  </url>
+  <url>
+    <loc>http://www.fstpackage.org/reference/index.html</loc>
   </url>
   <url>
     <loc>http://www.fstpackage.org/reference/metadata_fst.html</loc>
