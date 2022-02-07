@@ -21,6 +21,8 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+    
+
     <div class="container template-home">
       <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -33,18 +35,12 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">fstcore</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.9.6</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.9.8</span>
       </span>
     </div>
 
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-<li>
-  <a href="index.html">
-    <span class="fas fa-home fa-lg"></span>
-     
-  </a>
-</li>
 <li>
   <a href="reference/index.html">Reference</a>
 </li>
@@ -54,7 +50,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/fstpackage/fst/">
+  <a href="https://github.com/fstpackage/fst/" class="external-link">
     <span class="fab fa-github fa-lg"></span>
      
   </a>
@@ -74,70 +70,86 @@
 
 <p><img src="fstcore.png" align="right" height="196" width="196"></p>
 <!-- badges: start -->
-<p><a href="https://cran.r-project.org/web/checks/check_results_fstcore.html"><img src="https://cranchecks.info/badges/flavor/release/fstcore/" alt="CRAN status"></a> <a href="https://cran.r-project.org/package=fstcore"><img src="https://www.r-pkg.org/badges/version/fstcore" alt="CRAN_Status_Badge"></a> <a href="https://cran.r-project.org/package=fstcore"><img src="https://cranlogs.r-pkg.org/badges/fstcore" alt="downloads"></a> <a href="https://cran.r-project.org/package=fstcore"><img src="https://cranlogs.r-pkg.org/badges/grand-total/fstcore" alt="total_downloads"></a></p>
-<p><a href="https://travis-ci.com/fstpackage/fstcore/"><img src="https://travis-ci.com/fstpackage/fstcore.svg?branch=develop" alt="Linux/OSX Build Status"></a> <a href="https://ci.appveyor.com/project/fstpackage/fstcore/"><img src="https://ci.appveyor.com/api/projects/status/alg12npmm08564v6?svg=true" alt="Windows Build"></a> <a href="https://codecov.io/gh/fstpackage/fstcore/"><img src="https://codecov.io/gh/fstpackage/fstcore/branch/develop/graph/badge.svg" alt="codecov"></a> <a href="https://github.com/MarcusKlik/fstcore/actions/"><img src="https://github.com/MarcusKlik/fstcore/workflows/R-CMD-check/badge.svg" alt="R build status"></a> <!-- badges: end --></p>
-<p><a href="https://opensource.org/licenses/MPL-2.0/"><img src="https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg" alt="License: MPL 2.0"></a></p>
-<div id="overview" class="section level2">
-<h2 class="hasAnchor">
-<a href="#overview" class="anchor"></a>Overview</h2>
+
+<p><a href="https://github.com/fstpackage/fstcore/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/fstpackage/fstcore/actions/workflows/R-CMD-check.yaml/badge.svg?branch=develop" alt="Build Status"></a> <a href="https://app.codecov.io/gh/fstpackage/fstcore" class="external-link"><img src="https://codecov.io/gh/fstpackage/fstcore/branch/develop/graph/badge.svg" alt="codecov"></a> <!-- badges: end --></p>
+<p><a href="https://opensource.org/licenses/MPL-2.0/" class="external-link"><img src="https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg" alt="License: MPL 2.0"></a></p>
+<div class="section level2">
+<h2 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
+</h2>
 <p>R package <code>fstcore</code> contains R bindings to the C++ <code>fstlib</code> library which allows interfacing with <em>fst</em> files. It also contains the <code>LZ4</code> and <code>ZSTD</code> sources used for compression. <code>fstcore</code> exists as a package separate from the <code>fst</code> package to facilitate independent updates to the <code>fstlib</code>, <code>LZ4</code> and <code>ZSTD</code> libraries and is used as a backend to <code>fst</code>.</p>
 </div>
-<div id="installation" class="section level2">
-<h2 class="hasAnchor">
-<a href="#installation" class="anchor"></a>Installation</h2>
+<div class="section level2">
+<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h2>
 <p>Package <code>fstcore</code> is automatically installed as a dependency when you install the <code>fst</code> package from CRAN. If you need to install it directly, you can use:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"fstcore"</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"fstcore"</span><span class="op">)</span></code></pre></div>
 <p>You can also use the development version from GitHub:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="co"># install.packages("devtools")</span>
-<span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org//reference/remote-reexports.html">install_github</a></span><span class="op">(</span><span class="st">"fstpackage/fstcore"</span>, ref <span class="op">=</span> <span class="st">"develop"</span><span class="op">)</span></code></pre></div>
+<span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://devtools.r-lib.org/reference/remote-reexports.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"fstpackage/fstcore"</span>, ref <span class="op">=</span> <span class="st">"develop"</span><span class="op">)</span></code></pre></div>
 </div>
-<div id="basic-usage" class="section level2">
-<h2 class="hasAnchor">
-<a href="#basic-usage" class="anchor"></a>Basic usage</h2>
-<p>Please refer to <a href="https://www.fstpackage.org/fst" class="uri">https://www.fstpackage.org/fst</a> to get an introduction to using the <code>fst</code> package.</p>
+<div class="section level2">
+<h2 id="basic-usage">Basic usage<a class="anchor" aria-label="anchor" href="#basic-usage"></a>
+</h2>
+<p>Please refer to <a href="https://www.fstpackage.org/fst" class="external-link uri">https://www.fstpackage.org/fst</a> to get an introduction to using the <code>fst</code> package.</p>
 </div>
-<div id="contact" class="section level2">
-<h2 class="hasAnchor">
-<a href="#contact" class="anchor"></a>Contact</h2>
-<p>Questions, ideas and issues can be reported in the <a href="https://github.com/fstpackage/fst">fst package repository</a>.</p>
+<div class="section level2">
+<h2 id="contact">Contact<a class="anchor" aria-label="anchor" href="#contact"></a>
+</h2>
+<p>Questions, ideas and issues can be reported in the <a href="https://github.com/fstpackage/fst" class="external-link">fst package repository</a>.</p>
 </div>
 
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <div class="links">
-<h2>Links</h2>
+<h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
-<li>Download from CRAN at <br><a href="https://cloud.r-project.org/package=fstcore">https://​cloud.r-project.org/​package=fstcore</a>
-</li>
-<li>Browse source code at <br><a href="https://github.com/fstpackage/fst/">https://​github.com/​fstpackage/​fst/​</a>
-</li>
-<li>Report a bug at <br><a href="https://github.com/fstpackage/fst/issues">https://​github.com/​fstpackage/​fst/​issues</a>
-</li>
+<li><a href="https://cloud.r-project.org/package=fstcore" class="external-link">View on CRAN</a></li>
+<li><a href="https://github.com/fstpackage/fst/" class="external-link">Browse source code</a></li>
+<li><a href="https://github.com/fstpackage/fst/issues" class="external-link">Report a bug</a></li>
 </ul>
 </div>
+
 <div class="license">
-<h2>License</h2>
+<h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
 <li>
-<a href="https://www.mozilla.org/en-US/MPL/2.0/">MPL-2.0</a> | file <a href="LICENSE-text.html">LICENSE</a>
+<a href="https://www.mozilla.org/en-US/MPL/2.0/" class="external-link">MPL-2.0</a> | file <a href="LICENSE-text.html">LICENSE</a>
 </li>
 </ul>
 </div>
+
 <div class="community">
-<h2>Community</h2>
+<h2 data-toc-skip>Community</h2>
 <ul class="list-unstyled">
 <li><a href="CONTRIBUTING.html">Contributing guide</a></li>
 </ul>
 </div>
-<div class="developers">
-<h2>Developers</h2>
+
+<div class="citation">
+<h2 data-toc-skip>Citation</h2>
 <ul class="list-unstyled">
-<li>Mark Klik <br><small class="roles"> Author, maintainer, copyright holder </small>  <br><small>(Mark Klik is author of the fstcore package and author and copyright holder of the bundled 'fstlib' code)</small>
-</li>
-<li><a href="authors.html">All authors...</a></li>
+<li><a href="authors.html#citation">Citing fstcore</a></li>
+</ul>
+</div>
+
+<div class="developers">
+<h2 data-toc-skip>Developers</h2>
+<ul class="list-unstyled">
+<li>Mark Klik <br><small class="roles"> Author, maintainer, copyright holder </small>  </li>
+<li><a href="authors.html">More about authors...</a></li>
+</ul>
+</div>
+
+<div class="dev-status">
+<h2 data-toc-skip>Dev status</h2>
+<ul class="list-unstyled">
+<li><a href="https://cran.r-project.org/web/checks/check_results_fstcore.html" class="external-link"><img src="https://cranchecks.info/badges/flavor/release/fstcore/" alt="CRAN status"></a></li>
+<li><a href="https://cran.r-project.org/package=fstcore" class="external-link"><img src="https://www.r-pkg.org/badges/version/fstcore" alt="CRAN_Status_Badge"></a></li>
+<li><a href="https://cran.r-project.org/package=fstcore" class="external-link"><img src="https://cranlogs.r-pkg.org/badges/fstcore" alt="downloads"></a></li>
+<li><a href="https://cran.r-project.org/package=fstcore" class="external-link"><img src="https://cranlogs.r-pkg.org/badges/grand-total/fstcore" alt="total_downloads"></a></li>
 </ul>
 </div>
 
@@ -146,11 +158,13 @@
 
 
       <footer><div class="copyright">
-  <p>Developed by Mark Klik.</p>
+  <p></p>
+<p>Developed by Mark Klik.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
 </div>
 
       </footer>
@@ -158,6 +172,8 @@
 
   
 
+
+  
 
   </body>
 </html>
