@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">fst</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.9.6</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.9.8</span>
       </span>
     </div>
 
@@ -48,7 +48,20 @@
     </div>
 
     <div class="section level2">
-<h2 class="page-header" data-toc-text="0.9.6" id="fst-096">fst 0.9.6<a class="anchor" aria-label="anchor" href="#fst-096"></a></h2>
+<h2 class="page-header" data-toc-text="0.9.8" id="fst-098">fst 0.9.8<a class="anchor" aria-label="anchor" href="#fst-098"></a></h2>
+<p>With this release of <code>fst</code>, the <code>fstlib</code> library is no longer build with the <code>fst</code> package, but imported from package <code>fstcore</code>. This allows for better separation of updates of the C++ code underlying the <code>fst</code> format and the R wrapper package. Also, with this setup, other packages can directly use the C++ interface exported from the fstcore package.</p>
+<div class="section level3">
+<h3 id="bugs-solved-0-9-8">Bugs solved<a class="anchor" aria-label="anchor" href="#bugs-solved-0-9-8"></a></h3>
+<ul><li>The package had linking problems on ARM macOS systems, preventing a correct build. These problems originated from minor differences between the xxHash implementations in the LZ4 and ZSTD libraries and incorrect linker parameters.</li>
+</ul></div>
+<div class="section level3">
+<h3 id="library-updates-0-9-8">Library updates<a class="anchor" aria-label="anchor" href="#library-updates-0-9-8"></a></h3>
+<ul><li>Library LZ4 updated to version 1.9.3</li>
+<li>library ZSTD updated to version 1.5.2</li>
+</ul></div>
+</div>
+    <div class="section level2">
+<h2 class="page-header" data-toc-text="0.9.6" id="fst-096">fst 0.9.6<small>2022-02-01</small><a class="anchor" aria-label="anchor" href="#fst-096"></a></h2>
 <p>Version 0.9.6 is a minor update to ‘hotfix’ an issue with the use of <code><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample.int()</a></code>. All calls to <code><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample.int()</a></code> now explicitly reference a length one size object.</p>
 </div>
     <div class="section level2">
