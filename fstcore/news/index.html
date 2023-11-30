@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">fstcore</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.9.8</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.9.16</span>
       </span>
     </div>
 
@@ -47,6 +47,32 @@
       <small>Source: <a href="https://github.com/fstpackage/fst/blob/HEAD/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
+    <div class="section level2">
+<h2 class="page-header" data-toc-text="0.9.16" id="fstcore-0916-2023-11-29">fstcore 0.9.16 (2023-11-29)<small>2023-11-29</small><a class="anchor" aria-label="anchor" href="#fstcore-0916-2023-11-29"></a></h2>
+<p>This release addresses build problems on systems using clang version 16 or above due to the use of string literals in RcppExports.cpp. With thanks to CRAN for identifying the problem and Prof. Eddelbuettel for providing a fix in the Rcpp package.</p>
+<div class="section level3">
+<h3 id="library-updates-0-9-16">Library updates<a class="anchor" aria-label="anchor" href="#library-updates-0-9-16"></a></h3>
+<ul><li>
+<code>ZSTD</code> has been updated to version 1.5.5</li>
+</ul></div>
+</div>
+    <div class="section level2">
+<h2 class="page-header" data-toc-text="0.9.14" id="fstcore-0914-2023-01-12">fstcore 0.9.14 (2023-01-12)<small>2023-01-12</small><a class="anchor" aria-label="anchor" href="#fstcore-0914-2023-01-12"></a></h2>
+<p>This release addresses build problems on systems using gcc 13 due to missing <cstdint> includes. With thanks to Prof. Ripley for identifying the problem and offering pointers to the solution.</cstdint></p>
+<div class="section level3">
+<h3 id="library-updates-0-9-14">Library updates<a class="anchor" aria-label="anchor" href="#library-updates-0-9-14"></a></h3>
+<ul><li>
+<code>LZ4</code> has been updated to version 1.9.4</li>
+</ul></div>
+</div>
+    <div class="section level2">
+<h2 class="page-header" data-toc-text="0.9.12" id="fstcore-0912-2022-03-23">fstcore 0.9.12 (2022-03-23)<small>2022-03-23</small><a class="anchor" aria-label="anchor" href="#fstcore-0912-2022-03-23"></a></h2>
+<p>This release adds a fallback mechanism for systems that fail the configure script. When systems packages LZ4 or ZSTD are missing and configuration fails, the bundled code is used to build the package.</p>
+</div>
+    <div class="section level2">
+<h2 class="page-header" data-toc-text="0.9.10" id="fstcore-0910-2022-03-21">fstcore 0.9.10 (2022-03-21)<small>2022-03-21</small><a class="anchor" aria-label="anchor" href="#fstcore-0910-2022-03-21"></a></h2>
+<p>This release adds a configure script to the package that checks for the availability of system packages lz4, zstd and xxhash. When available, these system packages are used instead of compiling code directly from the package sources.</p>
+</div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="0.9.8" id="fstcore-098-2022-02-04">fstcore 0.9.8 (2022-02-04)<small>2022-02-04</small><a class="anchor" aria-label="anchor" href="#fstcore-098-2022-02-04"></a></h2>
 <p>This release addresses linking problems occurring on ARM OSX systems due to incorrect configuration of Makevars. With thanks to Prof. Ripley for identifying the problem and offering pointers for the solution.</p>
@@ -92,7 +118,7 @@
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer></div>

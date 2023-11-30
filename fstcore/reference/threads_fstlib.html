@@ -23,7 +23,7 @@ logical cores in the system."><!-- mathjax --><script src="https://cdnjs.cloudfl
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">fstcore</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.9.8</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.9.16</span>
       </span>
     </div>
 
@@ -65,7 +65,7 @@ logical cores in the system.</p>
     </div>
 
     <div id="ref-usage">
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">threads_fstlib</span><span class="op">(</span>nr_of_threads <span class="op">=</span> <span class="cn">NULL</span>, reset_after_fork <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">threads_fstlib</span><span class="op">(</span>nr_of_threads <span class="op">=</span> <span class="cn">NULL</span>, reset_after_fork <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div id="arguments">
@@ -73,6 +73,8 @@ logical cores in the system.</p>
     <dl><dt>nr_of_threads</dt>
 <dd><p>number of threads to use or <code>NULL</code> to get the current number of threads used in
 multithreaded operations.</p></dd>
+
+
 <dt>reset_after_fork</dt>
 <dd><p>when <code>fstcore</code> is running in a forked process, the usage of OpenMP can
 create problems. To prevent these, <code>fstcore</code> switches back to single core usage when it detects a fork.
@@ -81,10 +83,13 @@ After the fork, the number of threads is reset to it's initial setting. However,
 is set to <code>FALSE</code>, <code>fstcore</code> is left in single-threaded mode after the fork ends. After the fork,
 multithreading can be activated again manually by calling <code>threads_fstlib</code> with an appropriate value
 for <code>nr_of_threads</code>. The default (<code>reset_after_fork = NULL</code>) leaves the fork behavior unchanged.</p></dd>
+
 </dl></div>
     <div id="value">
     <h2>Value</h2>
-    <p>the number of threads (previously) used</p>
+    
+
+<p>the number of threads (previously) used</p>
     </div>
     <div id="details">
     <h2>Details</h2>
@@ -96,18 +101,18 @@ must use <code>threads_fstlib</code> to set the number of threads.</p>
 
     <div id="ref-examples">
     <h2>Examples</h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co"># get current number of threads</span></span>
-<span class="r-in"><span class="fu">threads_fstlib</span><span class="op">(</span><span class="op">)</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 12</span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># set the number of threads</span></span>
-<span class="r-in"><span class="fu">threads_fstlib</span><span class="op">(</span><span class="fl">12</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># leave in single threaded mode after a fork</span></span>
-<span class="r-in"><span class="fu">threads_fstlib</span><span class="op">(</span><span class="fl">12</span>, reset_after_fork <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co"># reset number of threads after a fork</span></span>
-<span class="r-in"><span class="fu">threads_fstlib</span><span class="op">(</span><span class="fl">12</span>, reset_after_fork <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co"># get current number of threads</span></span></span>
+<span class="r-in"><span><span class="fu">threads_fstlib</span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 32</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># set the number of threads</span></span></span>
+<span class="r-in"><span><span class="fu">threads_fstlib</span><span class="op">(</span><span class="fl">12</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># leave in single threaded mode after a fork</span></span></span>
+<span class="r-in"><span><span class="fu">threads_fstlib</span><span class="op">(</span><span class="fl">12</span>, reset_after_fork <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co"># reset number of threads after a fork</span></span></span>
+<span class="r-in"><span><span class="fu">threads_fstlib</span><span class="op">(</span><span class="fl">12</span>, reset_after_fork <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></span>
 </code></pre></div>
     </div>
   </div>
@@ -122,7 +127,7 @@ must use <code>threads_fstlib</code> to set the number of threads.</p>
 </div>
 
 <div class="pkgdown">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
       </footer></div>
