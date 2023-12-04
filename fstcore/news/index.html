@@ -17,7 +17,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">fstcore</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.9.16</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.9.18</span>
       </span>
     </div>
 
@@ -47,6 +47,10 @@
       <small>Source: <a href="https://github.com/fstpackage/fst/blob/HEAD/NEWS.md" class="external-link"><code>NEWS.md</code></a></small>
     </div>
 
+    <div class="section level2">
+<h2 class="page-header" data-toc-text="0.9.18" id="fstcore-0918-2023-12-02">fstcore 0.9.18 (2023-12-02)<small>2023-12-02</small><a class="anchor" aria-label="anchor" href="#fstcore-0918-2023-12-02"></a></h2>
+<p>This release addresses build problems experienced by users with older compilers where assembler code in the bundled ZSTD library is not compiled correctly. To avoid this problem on later releases, additional platforms have been added to the test environment.</p>
+</div>
     <div class="section level2">
 <h2 class="page-header" data-toc-text="0.9.16" id="fstcore-0916-2023-11-29">fstcore 0.9.16 (2023-11-29)<small>2023-11-29</small><a class="anchor" aria-label="anchor" href="#fstcore-0916-2023-11-29"></a></h2>
 <p>This release addresses build problems on systems using clang version 16 or above due to the use of string literals in RcppExports.cpp. With thanks to CRAN for identifying the problem and Prof. Eddelbuettel for providing a fix in the Rcpp package.</p>
